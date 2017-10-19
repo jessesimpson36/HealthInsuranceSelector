@@ -9,12 +9,74 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-8">
-                Bootstrap col-md-8
-            </div>
-            <div class="col-md-4">
-                Bootstrap col-md-4
-            </div>
+            <table>
+
+                <tr>
+                    <td>Age</td>
+                    <td><input type="text"/></td>
+                </tr>
+
+                <tr>
+                    <td>Income</td>
+                    <td><input type="text"/></td>
+                </tr>
+
+                <tr>
+                    <td>Zip Code</td>
+                    <td><input type="text"/></td>
+                </tr>
+
+                <tr>
+                    <td>Number of months smoking-free</td>
+                    <td><input type="number"></td>
+                </tr>
+
+                <tr>
+                    <td>Is it important to keep your current doctor?</td>
+                    <td><input type="checkbox"></td>
+                </tr>
+
+                <tr>
+                    <td>Input name of doctor:</td>
+                    <td><input type="text"></td>
+                </tr>
+
+                <tr>
+                    <td>Are you a frequent traveler?</td>
+                    <td><input type="checkbox"/></td>
+                </tr>
+
+
+                <tr>
+                    <td>Annual Budget</td>
+                    <td><input type="text"/></td>
+                </tr>
+
+                <tr>
+                    <td>Special Conditions</td>
+                    <td><div><input type="checkbox"></div></td>
+                </tr>
+
+            </table>
+
+            Desired Premium Rate Range <br>
+            <input type="radio" name="preferredPremiumRange" value="zero" checked> Free<br>
+            <input type="radio" name="preferredPremiumRange" value="expensive"> Super expensive<br>
+            <input type="radio" name="preferredPremiumRange" value="other"> Other<br>
+
+
+            Desired Deductible Rate Range<br>
+            <input type="radio" name="preferredDeductibleRange">Free <br>
+            <input type="radio" name="preferredDeductibleRange">Expensive <br>
+            <input type="radio" name="preferredDeductibleRange">Other <br>
+
+
+            <button type="submit" class="btn">Submit</button>
+
+
+
+
+
         </div>
     </div>
 {% endblock %}
