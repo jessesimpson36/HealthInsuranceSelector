@@ -3,80 +3,157 @@
 {% block title %}Index{% endblock %}
 
 {% block body %}
+<!--https://www.w3schools.com/howto/howto_js_form_steps.asp?-->
+<form id="regForm" action="">
+
     <h2 class="text-center">
         Welcome to the Health Insurance Selector
     </h2>
 
     <div class="container">
-        <div class="row">
-            <table>
+        <div class="tab">
+            <h3>Hard Filters:</h3>
 
-                <tr>
-                    <td>Age</td>
-                    <td><input type="text"/></td>
-                </tr>
+            <div class="form-group">
+                <label>State</label>
+                <select class="form-control dropdown-toggle" id="state" name="state">
+                    <option disabled selected="selected">Please select your state</option>
+                    <option value="AK">Alaska</option>
+                    <option value="AL">Alabama</option>
+                    <option value="AR">Arkansas</option>
+                    <option value="AZ">Arizona</option>
+                    <option value="CA">California</option>
+                    <option value="CO">Colorado</option>
+                    <option value="CT">Connecticut</option>
+                    <option value="DC">District of Columbia</option>
+                    <option value="DE">Delaware</option>
+                    <option value="FL">Florida</option>
+                    <option value="GA">Georgia</option>
+                    <option value="HI">Hawaii</option>
+                    <option value="IA">Iowa</option>
+                    <option value="ID">Idaho</option>
+                    <option value="IL">Illinois</option>
+                    <option value="IN">Indiana</option>
+                    <option value="KS">Kansas</option>
+                    <option value="KY">Kentucky</option>
+                    <option value="LA">Louisiana</option>
+                    <option value="MA">Massachusetts</option>
+                    <option value="MD">Maryland</option>
+                    <option value="ME">Maine</option>
+                    <option value="MI">Michigan</option>
+                    <option value="MN">Minnesota</option>
+                    <option value="MO">Missouri</option>
+                    <option value="MS">Mississippi</option>
+                    <option value="MT">Montana</option>
+                    <option value="NC">North Carolina</option>
+                    <option value="ND">North Dakota</option>
+                    <option value="NE">Nebraska</option>
+                    <option value="NH">New Hampshire</option>
+                    <option value="NJ">New Jersey</option>
+                    <option value="NM">New Mexico</option>
+                    <option value="NV">Nevada</option>
+                    <option value="NY">New York</option>
+                    <option value="OH">Ohio</option>
+                    <option value="OK">Oklahoma</option>
+                    <option value="OR">Oregon</option>
+                    <option value="PA">Pennsylvania</option>
+                    <option value="PR">Puerto Rico</option>
+                    <option value="RI">Rhode Island</option>
+                    <option value="SC">South Carolina</option>
+                    <option value="SD">South Dakota</option>
+                    <option value="TN">Tennessee</option>
+                    <option value="TX">Texas</option>
+                    <option value="UT">Utah</option>
+                    <option value="VA">Virginia</option>
+                    <option value="VT">Vermont</option>
+                    <option value="WA">Washington</option>
+                    <option value="WI">Wisconsin</option>
+                    <option value="WV">West Virginia</option>
+                    <option value="WY">Wyoming</option>
+                </select>
+            </div>
 
-                <tr>
-                    <td>Income</td>
-                    <td><input type="text"/></td>
-                </tr>
+            <div class="form-group">
+                <label>Zip Code</label>
+                <input type="number" class="form-control"/>
+            </div>
 
-                <tr>
-                    <td>Zip Code</td>
-                    <td><input type="text"/></td>
-                </tr>
+            <div class="form-group">
+                <label>Age</label>
+                <input type="number" class="form-control"/>
+            </div>
 
-                <tr>
-                    <td>Number of months smoking-free</td>
-                    <td><input type="number"></td>
-                </tr>
-
-                <tr>
-                    <td>Is it important to keep your current doctor?</td>
-                    <td><input type="checkbox"></td>
-                </tr>
-
-                <tr>
-                    <td>Input name of doctor:</td>
-                    <td><input type="text"></td>
-                </tr>
-
-                <tr>
-                    <td>Are you a frequent traveler?</td>
-                    <td><input type="checkbox"/></td>
-                </tr>
-
-
-                <tr>
-                    <td>Annual Budget</td>
-                    <td><input type="text"/></td>
-                </tr>
-
-                <tr>
-                    <td>Special Conditions</td>
-                    <td><div><input type="checkbox"></div></td>
-                </tr>
-
-            </table>
-
-            Desired Premium Rate Range <br>
-            <input type="radio" name="preferredPremiumRange" value="zero" checked> Free<br>
-            <input type="radio" name="preferredPremiumRange" value="expensive"> Super expensive<br>
-            <input type="radio" name="preferredPremiumRange" value="other"> Other<br>
-
-
-            Desired Deductible Rate Range<br>
-            <input type="radio" name="preferredDeductibleRange">Free <br>
-            <input type="radio" name="preferredDeductibleRange">Expensive <br>
-            <input type="radio" name="preferredDeductibleRange">Other <br>
-
-
-            <button type="submit" class="btn">Submit</button>
-
-
-
-
-
+            <div class="form-group">
+                <label>Number of months tobacco-free</label>
+                <input type="number" class="form-control">
+            </div>
         </div>
+
+        <!-- ------------------------------------------   ---------------->
+
+        <hr />
+            <div class="tab">
+                <h3>Soft Filters</h3>
+
+                <div class="form-group">
+                    <label>Select diseases you currently have:</label>
+                    <br><input type="checkbox" class="form-check"/><label>Asthma</label>
+                    <br><input type="checkbox" class="form-check"/><label>Depression</label>
+                    <br><input type="checkbox" class="form-check"/><label>Diabetes</label>
+                    <br><input type="checkbox" class="form-check"/><label>Heart Disease</label>
+                    <br><input type="checkbox" class="form-check"/><label>High Blood Pressure / High Cholesterol</label>
+                    <br><input type="checkbox" class="form-check"/><label>Low Back Pain</label>
+                    <br><input type="checkbox" class="form-check"/><label>Pain Management</label>
+                    <br><input type="checkbox" class="form-check"/><label>Pregnancy</label>
+                    <br><input type="checkbox" class="form-check"/><label>Weight Loss Programs</label>
+                </div>
+
+                <div class="form-group">
+                    <label>Are benefits important to you?</label>
+                    <input type="checkbox" class="form-check"/>
+                </div>
+
+                <div class="form-group">
+                    <label>Desired Premium Price</label>
+                    <input type="text" class="form-control"/>
+                </div>
+
+                <div class="form-group">
+                    <label>Out of Pocket Maxiumum for Medical and Drug Benefits</label>
+                    <input type="number" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label>Deductible</label>
+                    <input type="number" class="form-control">
+                </div>
+            </div>
+
+        <div style="overflow:auto;">
+            <div style="float:right;">
+                <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+            </div>
+        </div>
+
+        <!-- Circles which indicates the steps of the form: -->
+        <div style="text-align:center;margin-top:40px;">
+          <span class="step"></span>
+          <span class="step"></span>
+        </div>
+
+        <!--Desired Premium Rate Range <br>-->
+        <!--<input type="radio" name="preferredPremiumRange" value="zero" checked> Free<br>-->
+        <!--<input type="radio" name="preferredPremiumRange" value="expensive"> Super expensive<br>-->
+        <!--<input type="radio" name="preferredPremiumRange" value="other"> Other<br>-->
+
+        <!--Desired Deductible Rate Range<br>-->
+        <!--<input type="radio" name="preferredDeductibleRange">Free <br>-->
+        <!--<input type="radio" name="preferredDeductibleRange">Expensive <br>-->
+        <!--<input type="radio" name="preferredDeductibleRange">Other <br>-->
+
+        <button type="submit" class="btn btn-primary">Part 2</button>
+
     </div>
+</form>
 {% endblock %}
