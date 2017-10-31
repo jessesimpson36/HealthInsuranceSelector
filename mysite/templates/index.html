@@ -3,7 +3,6 @@
 {% block title %}Index{% endblock %}
 
 {% block body %}
-<!--https://www.w3schools.com/howto/howto_js_form_steps.asp?-->
 <form id="regForm" action="">
 
     <h2 class="text-center">
@@ -75,23 +74,23 @@
 
             <div class="form-group">
                 <label>Zip Code</label>
-                <input type="number" class="form-control"/>
+                <input type="number" class="required form-control"/>
             </div>
 
             <div class="form-group">
                 <label>Age</label>
-                <input type="number" class="form-control"/>
+                <input type="number" class="required form-control"/>
             </div>
 
             <div class="form-group">
-                <label>Number of months tobacco-free</label>
-                <input type="number" class="form-control">
+                <label>Have you ever smoked?</label> <input id="smokeBox"  type="checkbox" onclick="showTobaccoQuestion()"  class="form-check"/> <br>
+                <label id="tobaccoLabel">Number of months tobacco-free</label>
+                <input id="tobaccoInput" type="number" class="form-control">
             </div>
         </div>
 
         <!-- ------------------------------------------   ---------------->
 
-        <hr />
             <div class="tab">
                 <h3>Soft Filters</h3>
 
@@ -110,7 +109,15 @@
 
                 <div class="form-group">
                     <label>Are benefits important to you?</label>
-                    <input type="checkbox" class="form-check"/>
+                    <input id="benefitsCheckBox"  type="checkbox" class="form-check" onclick="showListOfBenefits()"/> <br>
+
+                    <label id="benefitsLabel">Select the benefits that appeal to you (hold Ctrl to select multiple):</label><br>
+                    <select class="multiselect" name="benefitsSelect" id="benefitsSelect" multiple>
+                      <option >Free Money</option>
+                      <option >Free Tea</option>
+                      <option >Good Looks</option>
+                      <option >Cake</option>
+                    </select>
                 </div>
 
                 <div class="form-group">
@@ -131,8 +138,8 @@
 
         <div style="overflow:auto;">
             <div style="float:right;">
-                <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-                <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                <button type="button" id="prevBtn" class="btn btn-primary" onclick="nextPrev(-1)">Previous</button>
+                <button type="button" id="nextBtn" class="btn btn-primary" onclick="nextPrev(1)">Next</button>
             </div>
         </div>
 
@@ -141,18 +148,6 @@
           <span class="step"></span>
           <span class="step"></span>
         </div>
-
-        <!--Desired Premium Rate Range <br>-->
-        <!--<input type="radio" name="preferredPremiumRange" value="zero" checked> Free<br>-->
-        <!--<input type="radio" name="preferredPremiumRange" value="expensive"> Super expensive<br>-->
-        <!--<input type="radio" name="preferredPremiumRange" value="other"> Other<br>-->
-
-        <!--Desired Deductible Rate Range<br>-->
-        <!--<input type="radio" name="preferredDeductibleRange">Free <br>-->
-        <!--<input type="radio" name="preferredDeductibleRange">Expensive <br>-->
-        <!--<input type="radio" name="preferredDeductibleRange">Other <br>-->
-
-        <button type="submit" class="btn btn-primary">Part 2</button>
 
     </div>
 </form>
