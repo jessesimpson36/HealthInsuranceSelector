@@ -3,94 +3,90 @@
 {% block title %}Home{% endblock %}
 
 {% block body %}
-<form action="/input/" method="get">
+<form id="regForm">
 
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Submit" />
+    <h2 class="text-center">
+        Welcome to the Health Insurance Selector
+    </h2>
 
-    <!--<h2 class="text-center">-->
-        <!--Welcome to the Health Insurance Selector-->
-    <!--</h2>-->
+    <div class="container">
+        <div class="tab">
+            <h3>Hard Filters:</h3>
 
-    <!--<div class="container">-->
-        <!--<div class="tab">-->
-            <!--<h3>Hard Filters:</h3>-->
+            <div class="form-group">
+                <label>Zip Code</label>
+                <input type="number" class="required form-control"/>
+            </div>
 
-            <!--<div class="form-group">-->
-                <!--<label>Zip Code</label>-->
-                <!--<input type="number" class="required form-control"/>-->
-            <!--</div>-->
+            <div class="form-group">
+                <label>Age</label>
+                <input type="number" class="required form-control"/>
+            </div>
 
-            <!--<div class="form-group">-->
-                <!--<label>Age</label>-->
-                <!--<input type="number" class="required form-control"/>-->
-            <!--</div>-->
-
-            <!--<div class="form-group">-->
-                <!--<label>Have you ever smoked?</label> <input id="smokeBox"  type="checkbox" onclick="showTobaccoQuestion()"  class="form-check"/> <br>-->
-                <!--<label id="tobaccoLabel">Number of months tobacco-free</label>-->
-                <!--<input id="tobaccoInput" type="number" class="form-control">-->
-            <!--</div>-->
-        <!--</div>-->
+            <div class="form-group">
+                <label>Have you ever smoked?</label> <input id="smokeBox"  type="checkbox" onclick="showTobaccoQuestion()"  class="form-check"/> <br>
+                <label id="tobaccoLabel">Number of months tobacco-free</label>
+                <input id="tobaccoInput" type="number" class="form-control">
+            </div>
+        </div>
 
          <!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;   &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
 
-            <!--<div class="tab">-->
-                <!--<h3>Soft Filters</h3>-->
-                <!--<div class="form-group">-->
-                    <!--<label>Select diseases you currently have:</label>-->
-                    <!--<br><input type="checkbox" class="form-check"/><label>Asthma</label>-->
-                    <!--<br><input type="checkbox" class="form-check"/><label>Depression</label>-->
-                    <!--<br><input type="checkbox" class="form-check"/><label>Diabetes</label>-->
-                    <!--<br><input type="checkbox" class="form-check"/><label>Heart Disease</label>-->
-                    <!--<br><input type="checkbox" class="form-check"/><label>High Blood Pressure / High Cholesterol</label>-->
-                    <!--<br><input type="checkbox" class="form-check"/><label>Low Back Pain</label>-->
-                    <!--<br><input type="checkbox" class="form-check"/><label>Pain Management</label>-->
-                    <!--<br><input type="checkbox" class="form-check"/><label>Pregnancy</label>-->
-                    <!--<br><input type="checkbox" class="form-check"/><label>Weight Loss Programs</label>-->
-                <!--</div>-->
+            <div class="tab">
+                <h3>Soft Filters</h3>
+                <div class="form-group">
+                    <label>Select diseases you currently have:</label>
+                    <br><input type="checkbox" class="form-check"/><label>Asthma</label>
+                    <br><input type="checkbox" class="form-check"/><label>Depression</label>
+                    <br><input type="checkbox" class="form-check"/><label>Diabetes</label>
+                    <br><input type="checkbox" class="form-check"/><label>Heart Disease</label>
+                    <br><input type="checkbox" class="form-check"/><label>High Blood Pressure / High Cholesterol</label>
+                    <br><input type="checkbox" class="form-check"/><label>Low Back Pain</label>
+                    <br><input type="checkbox" class="form-check"/><label>Pain Management</label>
+                    <br><input type="checkbox" class="form-check"/><label>Pregnancy</label>
+                    <br><input type="checkbox" class="form-check"/><label>Weight Loss Programs</label>
+                </div>
 
-                <!--<div class="form-group">-->
-                    <!--<label>Are benefits important to you?</label>-->
-                    <!--<input id="benefitsCheckBox"  type="checkbox" class="form-check" onclick="showListOfBenefits()"/> <br>-->
-                    <!--<label id="benefitsLabel">Select the benefits that appeal to you (hold Ctrl to select multiple):</label><br>-->
-                    <!--<select class="multiselect" name="benefitsSelect" id="benefitsSelect" multiple>-->
-                      <!--<option >Free Money</option>-->
-                      <!--<option >Free Tea</option>-->
-                      <!--<option >Good Looks</option>-->
-                      <!--<option >Cake</option>-->
-                    <!--</select>-->
-                <!--</div>-->
+                <div class="form-group">
+                    <label>Are benefits important to you?</label>
+                    <input id="benefitsCheckBox"  type="checkbox" class="form-check" onclick="showListOfBenefits()"/> <br>
+                    <label id="benefitsLabel">Select the benefits that appeal to you (hold Ctrl to select multiple):</label><br>
+                    <select class="multiselect" name="benefitsSelect" id="benefitsSelect" multiple>
+                      <option >Free Money</option>
+                      <option >Free Tea</option>
+                      <option >Good Looks</option>
+                      <option >Cake</option>
+                    </select>
+                </div>
 
-                <!--<div class="form-group">-->
-                    <!--<label>Desired Premium Price</label>-->
-                    <!--<input type="text" class="form-control"/>-->
-                <!--</div>-->
+                <div class="form-group">
+                    <label>Desired Premium Price</label>
+                    <input type="text" class="form-control"/>
+                </div>
 
-                <!--<div class="form-group">-->
-                    <!--<label>Out of Pocket Maxiumum for Medical and Drug Benefits</label>-->
-                    <!--<input type="number" class="form-control">-->
-                <!--</div>-->
+                <div class="form-group">
+                    <label>Out of Pocket Maxiumum for Medical and Drug Benefits</label>
+                    <input type="number" class="form-control">
+                </div>
 
-                <!--<div class="form-group">-->
-                    <!--<label>Deductible</label>-->
-                    <!--<input type="number" class="form-control">-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--<div>-->
-            <!--<div style="float:right;">-->
-                <!--<button type="button" id="prevBtn" class="btn btn-primary" onclick="nextPrev(-1)">Previous</button>-->
-                <!--<button type="button" id="nextBtn" class="btn btn-primary" onclick="nextPrev(1)">Next</button>-->
-            <!--</div>-->
-        <!--</div>-->
+                <div class="form-group">
+                    <label>Deductible</label>
+                    <input type="number" class="form-control">
+                </div>
+            </div>
+        <div>
+            <div style="float:right;">
+                <button type="button" id="prevBtn" class="btn btn-primary" onclick="nextPrev(-1)">Previous</button>
+                <button type="button" id="nextBtn" class="btn btn-primary" onclick="nextPrev(1)">Next</button>
+            </div>
+        </div>
 
-        <!--&lt;!&ndash; Circles which indicates the steps of the form: &ndash;&gt;-->
-        <!--<div style="text-align:center;margin-top:40px;">-->
-          <!--<span class="step"></span>-->
-          <!--<span class="step"></span>-->
-        <!--</div>-->
+        <!-- Circles which indicates the steps of the form: -->
+        <div style="text-align:center;margin-top:40px;">
+          <span class="step"></span>
+          <span class="step"></span>
+        </div>
 
-    <!--</div>-->
+    </div>
 </form>
 {% endblock %}
