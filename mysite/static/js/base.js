@@ -107,3 +107,15 @@ function showListOfBenefits(){
         benefitsLabel.style.display = "none";
     }
 }
+
+function getResults(){
+    $.ajax({
+        url:'/get_results/',
+        type: "GET",
+        success:function(response){},
+        complete:function(){},
+        error:function (xhr, textStatus, thrownError){}
+    });
+
+});
+}
