@@ -22,9 +22,3 @@ def input(request):
 
     return render(request, 'index.html', {'form': form})
 
-
-# def get_results(request):
-#     if request.method == 'POST':
-#         return HttpResponseNotFound()
-#     else:
-#         return

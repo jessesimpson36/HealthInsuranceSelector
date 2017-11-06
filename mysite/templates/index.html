@@ -5,7 +5,6 @@
 {% block body %}
 <form id="regForm" action="/input/" method="post">
     {% csrf_token %}
-    <!--{{ form }}-->
 
     <h2 class="text-center">
         Welcome to the Health Insurance Selector
@@ -16,23 +15,16 @@
             <div class="form-group">
                 {{ form.zipcode.label_tag }}
                 {{ form.zipcode }}
-                <!--<label>Zip Code</label>-->
-                <!--<input type="number" class="required form-control"/>-->
             </div>
 
             <div class="form-group">
                 {{ form.age.label_tag }}
                 {{ form.age }}
-                <!--<label>Age</label>-->
-                <!--<input type="number" class="required form-control"/>-->
             </div>
 
             <div class="form-group">
                 {{ form.months_tobacco_free.label_tag }}
                 {{ form.months_tobacco_free }}
-                <!--<label>Have you ever smoked?</label> <input id="smokeBox"  type="checkbox" onclick="showTobaccoQuestion()"  class="form-check"/> <br>-->
-                <!--<label id="tobaccoLabel">Number of months tobacco-free</label>-->
-                <!--<input id="tobaccoInput" type="number" class="form-control">-->
             </div>
         </div>
 
@@ -42,16 +34,6 @@
                 <div class="form-group">
                     {{ form.diseases.label_tag }}
                     {{ form.diseases }}
-                    <!--<label>Select diseases you currently have:</label>-->
-                    <!--<br><input type="checkbox" class="form-check"/><label>Asthma</label>-->
-                    <!--<br><input type="checkbox" class="form-check"/><label>Depression</label>-->
-                    <!--<br><input type="checkbox" class="form-check"/><label>Diabetes</label>-->
-                    <!--<br><input type="checkbox" class="form-check"/><label>Heart Disease</label>-->
-                    <!--<br><input type="checkbox" class="form-check"/><label>High Blood Pressure / High Cholesterol</label>-->
-                    <!--<br><input type="checkbox" class="form-check"/><label>Low Back Pain</label>-->
-                    <!--<br><input type="checkbox" class="form-check"/><label>Pain Management</label>-->
-                    <!--<br><input type="checkbox" class="form-check"/><label>Pregnancy</label>-->
-                    <!--<br><input type="checkbox" class="form-check"/><label>Weight Loss Programs</label>-->
                 </div>
 
                 <div class="form-group">
@@ -69,8 +51,6 @@
                 <div class="form-group">
                     {{ form.desired_premium_price.label_tag }}
                     {{ form.desired_premium_price }}
-                    <!--<label>Desired Premium Price</label>-->
-                    <!--<input type="text" class="form-control"/>-->
                 </div>
 
                 <div class="form-group">
@@ -105,7 +85,7 @@
             </div>
         </div>
 
-        <!--&lt;!&ndash; Circles which indicates the steps of the form: &ndash;&gt;-->
+        <!-- Circles which indicates the steps of the form: -->
         <div style="text-align:center;margin-top:40px;">
           <span class="step"></span>
           <span class="step"></span>

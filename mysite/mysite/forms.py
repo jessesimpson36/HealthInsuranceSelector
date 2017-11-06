@@ -56,9 +56,9 @@ class HealthInsuranceInputForm(forms.Form):
     # soft filters
     diseases = forms.MultipleChoiceField(choices=DISEASE_CHOICES, widget=forms.CheckboxSelectMultiple())
     desired_premium_price = forms.IntegerField(label='Desired Premium Price')
-    desired_in_network_out_of_pocket_maximum =        forms.ChoiceField(choices=INN_MOOP_CHOICES, widget=forms.RadioSelect())
-    desired_out_of_network_out_of_pocket_maximum =        forms.ChoiceField(choices=OON_MOOP_CHOICES, widget=forms.RadioSelect())
-    desired_in_network_deductible =         forms.ChoiceField(choices=INN_DED_CHOICES, widget=forms.RadioSelect())
-    desired_out_of_network_deductible =         forms.ChoiceField(choices=OON_DED_CHOICES, widget=forms.RadioSelect())
+    desired_in_network_out_of_pocket_maximum = forms.ChoiceField(choices=INN_MOOP_CHOICES, widget=forms.RadioSelect())
+    desired_out_of_network_out_of_pocket_maximum = forms.ChoiceField(choices=OON_MOOP_CHOICES, widget=forms.RadioSelect())
+    desired_in_network_deductible = forms.ChoiceField(choices=INN_DED_CHOICES, widget=forms.RadioSelect())
+    desired_out_of_network_deductible = forms.ChoiceField(choices=OON_DED_CHOICES, widget=forms.RadioSelect())
     desired_in_network_coinsurance = forms.ChoiceField(choices=INN_COINSURANCE_CHOICES, widget=forms.RadioSelect())
 
