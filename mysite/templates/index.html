@@ -74,17 +74,28 @@
                 </div>
 
                 <div class="form-group">
-                    {{ form.out_of_pocket_maximum.label_tag }}
-                    {{ form.out_of_pocket_maximum }}
-                    <!--<label>Out of Pocket Maxiumum for Medical and Drug Benefits</label>-->
-                    <!--<input type="number" class="form-control">-->
+                    {{ form.desired_in_network_out_of_pocket_maximum.label_tag }}
+                    {{ form.desired_in_network_out_of_pocket_maximum }}
                 </div>
 
                 <div class="form-group">
-                    {{ form.deductible.label_tag }}
-                    {{ form.deductible }}
-                    <!--<label>Deductible</label>-->
-                    <!--<input type="number" class="form-control">-->
+                    {{ form.desired_out_of_network_out_of_pocket_maximum.label_tag }}
+                    {{ form.desired_out_of_network_out_of_pocket_maximum }}
+                </div>
+
+                <div class="form-group">
+                    {{ form.desired_in_network_deductible.label_tag }}
+                    {{ form.desired_in_network_deductible }}
+                </div>
+
+                <div class="form-group">
+                    {{ form.desired_out_of_network_deductible.label_tag }}
+                    {{ form.desired_out_of_network_deductible }}
+                </div>
+
+                <div class="form-group">
+                    {{ form.desired_in_network_coinsurance.label_tag }}
+                    {{ form.desired_in_network_coinsurance }}
                 </div>
             </div>
         <div>
