@@ -1,20 +1,96 @@
 {% extends 'base.html' %}
 
-{% block title %}Index{% endblock %}
+{% block title %}Home{% endblock %}
 
 {% block body %}
+<form id="regForm" action="/input/" method="post">
+    {% csrf_token %}
+
     <h2 class="text-center">
         Welcome to the Health Insurance Selector
     </h2>
 
     <div class="container">
-        <div class="row">
-            <div class="col-md-8">
-                Bootstrap col-md-8
+        <div class="tab">
+            <div class="form-group">
+                {{ form.zipcode.label_tag }}
+                {{ form.zipcode }}
             </div>
-            <div class="col-md-4">
-                Bootstrap col-md-4
+
+            <div class="form-group">
+                {{ form.age.label_tag }}
+                {{ form.age }}
+            </div>
+
+            <div class="form-group">
+                {{ form.months_tobacco_free.label_tag }}
+                {{ form.months_tobacco_free }}
             </div>
         </div>
+
+         <!--  ---------------------------------------------------------------------  -->
+
+            <div class="tab">
+                <div class="form-group">
+                    {{ form.diseases.label_tag }}
+                    {{ form.diseases }}
+                </div>
+
+                <div class="form-group">
+                    <!--<label>Are benefits important to you?</label>-->
+                    <!--<input id="benefitsCheckBox"  type="checkbox" class="form-check" onclick="showListOfBenefits()"/> <br>-->
+                    <!--<label id="benefitsLabel">Select the benefits that appeal to you (hold Ctrl to select multiple):</label><br>-->
+                    <!--<select class="multiselect" name="benefitsSelect" id="benefitsSelect" multiple>-->
+                      <!--<option >Free Money</option>-->
+                      <!--<option >Free Tea</option>-->
+                      <!--<option >Good Looks</option>-->
+                      <!--<option >Cake</option>-->
+                    <!--</select>-->
+                </div>
+
+                <div class="form-group">
+                    {{ form.desired_premium_price.label_tag }}
+                    {{ form.desired_premium_price }}
+                </div>
+
+                <div class="form-group">
+                    {{ form.desired_in_network_out_of_pocket_maximum.label_tag }}
+                    {{ form.desired_in_network_out_of_pocket_maximum }}
+                </div>
+
+                <div class="form-group">
+                    {{ form.desired_out_of_network_out_of_pocket_maximum.label_tag }}
+                    {{ form.desired_out_of_network_out_of_pocket_maximum }}
+                </div>
+
+                <div class="form-group">
+                    {{ form.desired_in_network_deductible.label_tag }}
+                    {{ form.desired_in_network_deductible }}
+                </div>
+
+                <div class="form-group">
+                    {{ form.desired_out_of_network_deductible.label_tag }}
+                    {{ form.desired_out_of_network_deductible }}
+                </div>
+
+                <div class="form-group">
+                    {{ form.desired_in_network_coinsurance.label_tag }}
+                    {{ form.desired_in_network_coinsurance }}
+                </div>
+            </div>
+        <div>
+            <div style="float:right;">
+                <button type="button" id="prevBtn" class="btn btn-primary" onclick="nextPrev(-1)">Previous</button>
+                <button type="button" id="nextBtn" class="btn btn-primary" onclick="nextPrev(1)">Next</button>
+            </div>
+        </div>
+
+        <!-- Circles which indicates the steps of the form: -->
+        <div style="text-align:center;margin-top:40px;">
+          <span class="step"></span>
+          <span class="step"></span>
+        </div>
+
     </div>
+</form>
 {% endblock %}
