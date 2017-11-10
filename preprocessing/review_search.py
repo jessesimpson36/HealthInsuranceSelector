@@ -10,20 +10,30 @@
 import newspaper
 import google
 import re
+import pandas as pd
+import os
 
-# Different plans as a test
-searched = ['progressive health insurance reviews']
-for p in searched:
+print(os.getcwd())
+pl = pd.read_csv("../../preprocessing/datasets/IssuerID_Name.csv")
+plansList = pl['Issuer_Name'].tolist()
+plans = [name + ' health insurance reviews' for name in plansList]
+
+for p in plans:
     search_results = google.search(p, stop=4, lang="en")
-    print(search_results)
+    # print(search_results)
     print("*"*30)
     print(p.upper())
     print("_"*15)
     for link in search_results:
-        # Beware of 403 errors. Still havent found a fix.
-        data = newspaper.Article(url=link)
-        data.download()
-        data.parse()
+        # Beware of 403 errors. Still havent found a fix.i
+        print(link)
+        try:
+            data = newspaper.Article(url=link)
+            data.download()
+            data.parse()
+        except:
+            continue
+
         text = data.text
         linesOfText = text.split('\n')
         for line in linesOfText:
