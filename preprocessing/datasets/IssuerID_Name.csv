@@ -1,35 +1,24 @@
 IssuerID,Issuer_Name,State
-11082,"Aetna Life Insurance
-Company",AK
-62637,"John Alden Life Insurance
-Company",AK
+11082,Aetna Life Insurance Company,AK
+62637,John Alden Life Insurance Company,AK
 73836,"Moda Health Plan, Inc.",AK
-38344,"Premera Blue Cross Blue
-Shield of Alaska",AK
+38344,Premera Blue Cross Blue Shield of Alaska,AK
 38596,Time Insurance Company,AK
-80049,"UnitedHealthcare Insurance
-Company",AK
-42159,"All Savers Insurance
-Company",AL
-46944,"Blue Cross and Blue Shield
-of Alabama",AL
-44902,"Federated Mutual Insurance
-Company",AL
+80049,UnitedHealthcare Insurance Company,AK
+42159,All Savers Insurance Company,AL
+46944,Blue Cross and Blue Shield of Alabama,AL
+44902,Federated Mutual Insurance Company,AL
 93122,Freedom Life Insurance,AL
 44580,Humana Insurance Company,AL
-49771,"John Alden Life Insurance
-Company",AL
+49771,John Alden Life Insurance Company,AL
 13939,Time Insurance Company,AL
-69461,"UnitedHealthcare Insurance
-Company",AL
-59809,"UnitedHealthcare Life
-Insurance Company",AL
-68259,"UnitedHealthcare of
-Alabama, Inc.",AL
+69461,UnitedHealthcare Insurance Company,AL
+59809,UnitedHealthcare Life Insurance Company,AL
+68259,"UnitedHealthcare of Alabama, Inc.",AL
 93018,VIVA Health,AL
 62141,Celtic Insurance Company,AR
 60079,Coventry Health and Life,AR
-89365,"Denver Health Medical Plan, Inc.",AR
+89365,Federated Mutual Insurance Company,AR
 61273,Freedom Life Insurance,AR
 13262,"HMO Partners, Inc.",AR
 99685,Humana Insurance Company,AR
@@ -74,12 +63,10 @@ Company",AZ
 Partners",AZ
 59096,Standard Security Life,AZ
 80863,Time Insurance Company,AZ
-82011,"UnitedHealthcare Insurance
-Company",AZ
+82011,UnitedHealthcare Insurance Company,AZ
 90169,"UnitedHealthcare Life
 Insurance Company",AZ
-40702,"UnitedHealthcare of
-Arizona, Inc.",AZ
+40702,"UnitedHealthcare of Arizona, Inc.",AZ
 88925,"University of Arizona Health
 Plans-University Healthcare, Inc.",AZ
 20523,"Aetna Health of California
@@ -225,34 +212,23 @@ Inc.",FL
 Co of FL, Inc.",FL
 15980,Humana Insurance Company,FL
 35783,"Humana Medical Plan, Inc.",FL
-41240,"John Alden Life Insurance
-Company",FL
-54172,"Molina Healthcare of
-Florida, Inc.",FL
-80779,"Neighborhood Health
-Partnership, Inc.",FL
+41240,John Alden Life Insurance Company,FL
+54172,"Molina Healthcare of Florida, Inc.",FL
+80779,"Neighborhood Health Partnership, Inc.",FL
 51398,"Preferred Medical Plan, Inc.",FL
 86382,Sunshine State Health Plan,FL
 62662,Time Insurance Company,FL
-43839,"UnitedHealthcare Insurance
-Company",FL
-17341,"UnitedHealthcare Life
-Insurance Company",FL
-68398,"UnitedHealthcare of Florida,
-Inc.",FL
-82824,"Aetna Health Inc. (a GA
-corp.)",GA
-83978,"Aetna Life Insurance
-Company",GA
+43839,UnitedHealthcare Insurance Company,FL
+17341,UnitedHealthcare Life Insurance Company,FL
+68398,"UnitedHealthcare of Florida, Inc.",FL
+82824,Aetna Health Inc. (a GA corp.),GA
+83978,Aetna Life Insurance Company,GA
 83761,Alliant Health Plans,GA
-82894,"Athens Area Health Plan
-Select, Inc.",GA
+82894,"Athens Area Health Plan Select, Inc.",GA
 63411,"Blue Cross and Blue Shield of Georgia, Inc.",GA
-49046,"Blue Cross Blue Shield
-Healthcare Plan of Georgia, Inc.",GA
+49046,"Blue Cross Blue Shield Healthcare Plan of Georgia, Inc.",GA
 24775,Celtic Insurance Company,GA
-50491,"Cigna Health and Life
-Insurance Company",GA
+50491,Cigna Health and Life Insurance Company,GA
 65890,Coventry Health and Life,GA
 47783,"Coventry Health Care of
 Georgia, Inc.",GA
@@ -860,6 +836,7 @@ Company",OH
 99969,"Medical Health Insuring
 Corp. of Ohio",OH
 80627,Medical Mutual of Ohio,OH
+23340,Medical Mutual of Ohio,OH
 64353,"MOLINA HEALTHCARE
 OF OHIO",OH
 56073,"Nippon Life Insurance
@@ -947,6 +924,9 @@ Company, Inc.",PA
 Pennsylvania, Inc.",PA
 93838,"HealthAssurance PA, Inc",PA
 70194,"Highmark Health Insurance
+Company",PA
+"83731
+","Highmark Health Insurance
 Company",PA
 33709,Highmark Inc.,PA
 31609,"Independence Blue Cross
@@ -1074,6 +1054,7 @@ Insurance Company, Inc.",TX
 45786,Molina Healthcare of Texas,TX
 45125,"Nippon Life Insurance
 Company of America",TX
+37392,Prominence HealthFirst,TX
 40788,Scott and White Health Plan,TX
 71837,"Sendero Health Plans, inc.",TX
 26539,"SHA, LLC DBA FirstCare
@@ -1083,175 +1064,139 @@ Health Plans",TX
 28020,Time Insurance Company,TX
 98809,"UnitedHealthcare Insurance
 Company",TX
-70619,"UnitedHealthcare Life
-Insurance Company",TX
+70619,UnitedHealthcare Life Insurance Company,TX
 40220,"UnitedHealthcare of Texas, Inc.",TX
-81795,"USAble Mutual Insurance
-Company",TX
+81795,USAble Mutual Insurance Company,TX
 38927,Aetna Health of Utah Inc.,UT
-27619,"Arches Mutual Insurance
-Company",UT
-34541,"BridgeSpan Health
-Company",UT
+27619,Arches Mutual Insurance Company,UT
+34541,BridgeSpan Health Company,UT
 46958,Humana Insurance Company,UT
-56764,"Humana Medical Plan of
-Utah, Inc.",UT
+56764,"Humana Medical Plan of Utah, Inc.",UT
 18167,Molina Healthcare of Utah,UT
-22013,"Regence BlueCross
-BlueShield of Utah",UT
+22013,Regence BlueCross BlueShield of Utah,UT
 68781,SelectHealth,UT
 44526,Time Insurance Company,UT
-97462,"UnitedHealthcare Insurance
-Company",UT
-43129,"UnitedHealthcare Life
-Insurance Company",UT
+97462,UnitedHealthcare Insurance Company,UT
+43129,UnitedHealthcare Life Insurance Company,UT
+42261,University of Utah - Healthy Premier,UT
 66413,"UnitedHealthcare of Utah, Inc.",UT
-93187,"Aetna Health Inc. (a PA
-corp.)",VA
-38234,"Aetna Life Insurance
-Company",VA
-16064,"Anthem Health Plans of
-Virginia, Inc.",VA
+93187,Aetna Health Inc. (a PA corp.),VA
+38234,Aetna Life Insurance Company,VA
+16064,"Anthem Health Plans of Virginia, Inc.",VA
 10207,"CareFirst BlueChoice, Inc.",VA
-93848,"Coventry Health & Life
-Insurance Co.",VA
-99663,"Coventry Health Care of
-Virginia, Inc",VA
-13433,"Federated Mutual Insurance
-Company",VA
-40308,"Group Hospitalization and
-Medical Services Inc.",VA
+93848,Coventry Health & Life Insurance Co.,VA
+99663,"Coventry Health Care of Virginia, Inc",VA
+13433,Federated Mutual Insurance Company,VA
+40308,Group Hospitalization and Medical Services Inc.,VA
 88380,"HealthKeepers, Inc.",VA
 50727,Humana Insurance Company,VA
-12028,"Innovation Health Insurance
-Company",VA
+12028,Innovation Health Insurance Company,VA
 86443,"Innovation Health Plan, Inc.",VA
-96835,"John Alden Life Insurance
-Company",VA
-95185,"Kaiser Foundation Health
-Plan of the Mid-Atlantic
-States, Inc.",VA
-89242,"Optima Health Insurance
-Company",VA
+96835,John Alden Life Insurance Company,VA
+95185,"Kaiser Foundation Health Plan of the Mid-Atlantic States, Inc.",VA
+89242,Optima Health Insurance Company,VA
 20507,Optima Health Plan,VA
 24251,"Optimum Choice, Inc.",VA
-15668,"Piedmont Community
-HealthCare, Inc.",VA
+15668,"Piedmont Community HealthCare, Inc.",VA
 50102,Time Insurance Company,VA
-66663,"United Healthcare Life
-Insurance Company",VA
-25978,"UnitedHealthcare Insurance
-Company",VA
-89498,"UnitedHealthcare Plan of the
-River Valley, Inc.",VA
-34673,"Aetna Life Insurance
-Company",WA
+66663,United Healthcare Life Insurance Company,VA
+25978,UnitedHealthcare Insurance Company,VA
+89498,"UnitedHealthcare Plan of the River Valley, Inc.",VA
+34673,Aetna Life Insurance Company,WA
 69364,Asuris Northwest Health,WA
-53732,"BridgeSpan Health
-Company",WA
-18581,"Community Health Plan of
-Washington",WA
-61836,"Coordinated Care
-Corporation",WA
+53732,BridgeSpan Health Company,WA
+18581,Community Health Plan of Washington,WA
+61836,Coordinated Care Corporation,WA
 80473,Group Health Cooperative,WA
 25768,"Group Health Options, Inc.",WA
-23371,"Kaiser Foundation
-Healthplan of the NW",WA
+23371,Kaiser Foundation Healthplan of the NW,WA
 38498,LifeWise Health Plan of WA,WA
 65907,"Moda Health Plan, Inc.",WA
-84481,"Molina Healthcare of
-Washington, Inc.",WA
+84481,"Molina Healthcare of Washington, Inc.",WA
 49831,Premera Blue Cross,WA
-71281,"Regence BlueCross
-BlueShield Of Oregon",WA
+71281,Regence BlueCross BlueShield Of Oregon,WA
 87718,Regence BlueShield,WA
 42277,Time Insurance Company,WA
-94388,"Trustmark Life Insurance
-Company",WA
-18699,"UnitedHealthcare Insurance
-Company",WA
-43861,"UnitedHealthcare of
-Washington, Inc.",WA
-38752,"Aetna Life Insurance
-Company",WI
-39924,"All Savers Insurance
-Company",WI
-90028,"BCBS of Wisconsin(Anthem
-BCBS)",WI
+94388,Trustmark Life Insurance Company,WA
+18699,UnitedHealthcare Insurance Company,WA
+43861,"UnitedHealthcare of Washington, Inc.",WA
+38752,Aetna Life Insurance Company,WI
+39924,All Savers Insurance Company,WI
+90028,BCBS of Wisconsin(Anthem BCBS),WI
 44197,Celtic Insurance Company,WI
-87416,"Common Ground Healthcare
-Cooperative",WI
-79475,"Compcare Health Serv Ins
-Co(Anthem BCBS)",WI
+87416,Common Ground Healthcare Cooperative,WI
+79475,Compcare Health Serv Ins Co(Anthem BCBS),WI
 38345,Dean Health Plan,WI
-92708,"Federated Mutual Insurance
-Company",WI
+92708,Federated Mutual Insurance Company,WI
 94529,Group Health Cooperative- SCW,WI
 91058,"Gundersen Health Plan, Inc.",WI
 47342,Health Tradition Health Plan,WI
-20173,"HealthPartners Insurance
-Company",WI
+20173,HealthPartners Insurance Company,WI
 91604,Humana Insurance Company,WI
-55103,"Humana Wisconsin Health
-Org. Ins. Copr",WI
-94720,"John Alden Life Insurance
-Company",WI
-57845,"Medica Health Plans of
-Wisconsin",WI
+55103,Humana Wisconsin Health Org. Ins. Copr,WI
+94720,John Alden Life Insurance Company,WI
+57845,Medica Health Plans of Wisconsin,WI
 57637,Medica Insurance Company,WI
-64772,"Medical Associates Health
-Plans",WI
+64772,Medical Associates Health Plans,WI
 58326,"MercyCare HMO, Inc.",WI
-35334,"MercyCare Insurance
-Company",WI
-52697,"Molina Healthcare of
-Wisconsin, Inc.",WI
+35334,MercyCare Insurance Company,WI
+52697,"Molina Healthcare of Wisconsin, Inc.",WI
 81413,Network Health Plan,WI
-58564,"Physicians Plus Insurance
-Corporation",WI
-38166,"Security Health Plan of
-Wisconsin, Inc.",WI
+58564,Physicians Plus Insurance Corporation,WI
+38166,"Security Health Plan of Wisconsin, Inc.",WI
 94073,Time Insurance Company,WI
-59158,"UnitedHealthcare Insurance
-Company",WI
-89106,"UnitedHealthcare Life
-Insurance Company",WI
-80180,"UnitedHealthcare of
-Wisconsin, Inc.",WI
-37833,"Unity Health Plans
-Insurance Corporation",WI
-22554,"US Health and Life
-Insurance Company",WI
-81974,"Wisconsin Physicians Svc
-Insurance Corp",WI
+14630,Together with Children's Community Health Plan,WI
+59158,UnitedHealthcare Insurance Company,WI
+89106,UnitedHealthcare Life Insurance Company,WI
+80180,"UnitedHealthcare of Wisconsin, Inc.",WI
+37833,Unity Health Plans Insurance Corporation,WI
+22554,US Health and Life Insurance Company,WI
+81974,Wisconsin Physicians Svc Insurance Corp,WI
 84670,"WPS Health Plan, Inc.",WI
-26661,"Coventry Health & Life
-Insurance Co.",WV
-33577,"Coventry Health Care of
-West Virginia, Inc.",WV
-14414,"Federated Mutual Insurance
-Company",WV
-31274,"Highmark Blue Cross Blue
-Shield West Virginia",WV
-48421,"John Alden Life Insurance
-Company",WV
+26661,Coventry Health & Life Insurance Co.,WV
+33577,"Coventry Health Care of West Virginia, Inc.",WV
+14414,Federated Mutual Insurance Company,WV
+31274,Highmark Blue Cross Blue Shield West Virginia,WV
+48421,John Alden Life Insurance Company,WV
 95628,"Optimum Choice, Inc.",WV
-72982,"The Health Plan of the
-Upper Ohio Valley",WV
+72982,The Health Plan of the Upper Ohio Valley,WV
 59772,THP Insurance Company,WV
 35992,Time Insurance Company,WV
-77060,"UnitedHealthcare Insurance
-Company",WV
+77060,UnitedHealthcare Insurance Company,WV
 79022,Aetna Health of Utah Inc.,WY
-11269,"Blue Cross Blue Shield of
-Wyoming",WY
+11269,Blue Cross Blue Shield of Wyoming,WY
 49290,Celtic Insurance Company,WY
 47823,Freedom Life Insurance,WY
-72208,"John Alden Life Insurance
-Company",WY
+72208,John Alden Life Insurance Company,WY
 29941,Time Insurance Company,WY
-49714,"UnitedHealthcare Insurance
-Company",WY
+49714,UnitedHealthcare Insurance Company,WY
 53189,WINhealth Partners,WY
 13627,Blue Cross Blue Shield of Vermont,VT
 77566,"MVP Health Plan, Inc.",VT
+86584,Aspirus Arise,WI
+45636,CareSource,KY
+62033,"MDwise, Inc.",IN
+20305,Medica Insurance Company,NE
+37204,"Piedmont Community HealthCare, Inc.",VA
+90714,Magnolia Health Plan,MS
+39520,Medica Insurance Company,KS
+36194,Florida Hospital Care Advantage,FL
+72034,Christus Health Plan,NM
+20069,Oscar Insurance Corporation,TX
+26734,Premier Health Plan,OH
+87928,Wellmark Inc.,IA
+53882,Cigna Health and Life Insurance Company,IL
+93078,Medica Insurance Company,IA
+50328,CareSource,WV
+27811,"Blue Cross and Blue Shield of Kansas, Inc.",KS
+74917,McLaren Health Plan,MI
+74406,Wellmark Inc.,IA
+54192,CareSource,IN
+41921,Cigna Health and Life Insurance Company,VA
+38599,United Healthcare Life Insurance Company,VA
+66252,Christus Health Plan,TX
+73943,Cigna Health and Life Insurance Company,NC
+61163,"Minuteman Health, Inc.",NH
+70893,Peach State Health Plan,GA
+74483,Cigna Health and Life Insurance Company,MO
+44794,Aetna Life Insurance Company,NE
