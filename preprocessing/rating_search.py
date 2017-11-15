@@ -31,9 +31,9 @@ comments = []
 
 number_of_companies_reviewed = 0
 total_companies = 0
-indexInPlans = 0;
+indexInPlans = 0
 
-for p in plans:
+for p in plans[133:]:
     plan_comm = []
 
     indexInPlans += 1
@@ -98,9 +98,9 @@ for p in plans:
     if letterFlag:
         bbb_ranking.append("None")
 
-        # Prints out the number of companies reviewed and the total number of companies so we know
-        # how many companies are being represented by our websites and filters.
-        print( "Number reviewed:   " + str( number_of_companies_reviewed) +  "   Total:    "  + str(total_companies) )
+    # Prints out the number of companies reviewed and the total number of companies so we know
+    # how many companies are being represented by our websites and filters.
+    print( "Number reviewed:   " + str( number_of_companies_reviewed) +  "   Total:    "  + str(total_companies) )
 
 # writes all of the customer and bbb rankings into a csv file
 df = pd.DataFrame(data={'IssuerID':idList, 'CustomerRanking':customer_ranking  ,'BBBRanking':bbb_ranking})
