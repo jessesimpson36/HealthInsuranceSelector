@@ -1,7 +1,7 @@
 import csv
 import json
 
-issuerCSVFileName = "datasets/IssuerID_Name_Updated_Trimmed_Updated.csv"
+issuerCSVFileName = "datasets/trimmedPlans.csv"
 plans = list()
 
 with open(issuerCSVFileName) as hiPlansData:
