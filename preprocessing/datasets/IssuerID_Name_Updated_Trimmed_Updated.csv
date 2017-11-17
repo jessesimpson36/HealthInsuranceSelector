@@ -1,0 +1,807 @@
+IssuerID,Issuer_Name,State
+11082,Aetna Life ,AK
+62637,John Alden Life ,AK
+73836,Moda Health Plan ,AK
+38344,Premera Blue Cross Blue Shield,AK
+38596,Time ,AK
+80049,UnitedHealthcare ,AK
+42159,All Savers ,AL
+46944,Blue Cross and Blue Shield,AL
+44902,Federated Mutual ,AL
+93122,Freedom Life Insurance,AL
+44580,Humana ,AL
+49771,John Alden Life ,AL
+13939,Time ,AL
+69461,UnitedHealthcare ,AL
+59809,UnitedHealthcare Life ,AL
+68259,UnitedHealthcare ,AL
+93018,VIVA Health,AL
+62141,Celtic ,AR
+60079,Coventry Health and Life,AR
+89365,Federated Mutual ,AR
+61273,Freedom Life Insurance,AR
+13262,HMO Partners ,AR
+99685,Humana ,AR
+51826,John Alden Life ,AR
+70525,QCA Health Plan ,AR
+37903,QualChoice Life & Health  ,AR
+30991,Time ,AR
+22732,UnitedHealthcare Ins Co Valley,AR
+81392,UnitedHealthcare ,AR
+53135,UnitedHealthcare Life ,AR
+65817,UnitedHealthcare ,AR
+75293,USAble Mutual ,AR
+78611,Aetna Life ,AZ
+84251,Aetna Life ,AZ
+98971,All Savers ,AZ
+53901,Blue Cross Blue Shield ,AZ
+86830,Cigna Health and Life ,AZ
+75849,Freedom Life Insurance,AZ
+70239,Health Choice Insurance Co,AZ
+51485,Health Net Life ,AZ
+91450,Health Net ,AZ
+23307,Humana ,AZ
+66105,Humana ,AZ
+73893,John Alden Life ,AZ
+23029,Madison National Life,AZ
+60761,Meritus Health Partners,AZ
+92045,Meritus Mutual Health Partners,AZ
+59096,Standard Security Life,AZ
+80863,Time ,AZ
+82011,UnitedHealthcare ,AZ
+90169,UnitedHealthcare Life ,AZ
+40702,UnitedHealthcare ,AZ
+88925,University Health Plans-University Healthcare ,AZ
+20523,Aetna Life ,CA
+40733,Aetna Life ,CA
+27603,Blue Cross(Anthem BC),CA
+70285,CA Physician's Service dba Blue Shield,CA
+47579,Chinese Community Health Plan,CA
+40025,Cigna Health and Life ,CA
+99483,Contra Costa Health Plan,CA
+84014,County Clara,CA
+56887,County dba Ventura County Health Care Plan,CA
+99110,Health Net Life ,CA
+67138,Health Net ,CA
+68744,Humana ,CA
+40513,Kaiser Foundation Health Plan ,CA
+27330,Kaiser Permanente ,CA
+92815,Local Initiative Health Authority for Los Angeles County,CA
+18126,MOLINA HEALTHCARE,CA
+92499,Sharp Health Plan,CA
+64198,Time ,CA
+35305,Trustmark Life ,CA
+49116,UHC,CA
+95677,UnitedHealthcare ,CA
+93689,Western Health Advantage,CA
+92137,All Savers ,CO
+49375,Cigna Health and Life ,CO
+63312,Colorado Choice Health Plans,CO
+20472,Colorado Health Insurance Cooperative ,CO
+66699,Denver Health Medical Plan ,CO
+76680,HMO Colorado  dba HMO Nevada,CO
+74320,Humana ,CO
+79509,Humana ,CO
+21032,Kaiser Foundation Health Plan,CO
+35944,Kaiser Permanente ,CO
+11555,New Health Ventures ,CO
+80208,Rocky Mountain Health Care Options,CO
+97879,Rocky Mountain HMO,CO
+87269,Rocky Mountain Hospital and Medical Service  dba Anthem Blue Cross and Blue Shield,CO
+39060,Time ,CO
+67879,UnitedHealthcare ,CO
+59036,UnitedHealthcare ,CO
+39159,Aetna Life ,CT
+86545,Anthem Health Plans  (Anthem BCBS),CT
+74684,Celtic ,CT
+87354,Cigna Health and Life ,CT
+76962,ConnectiCare Benefits  ,CT
+94815,ConnectiCare   ,CT
+75091,ConnectiCare  ,CT
+95882,Harvard Pilgrim Health Care  ,CT
+91069,HealthyCT  ,CT
+89130,HPHC   ,CT
+29462,Oxford Health Insurance  ,CT
+71179,Oxford Health Plans (CT)  ,CT
+86542,Time ,CT
+49650,UnitedHealthcare ,CT
+73987,Aetna Life ,DC
+77422,Aetna Life ,DC
+86052,CareFirst BlueChoice ,DC
+78079,GHMSI,DC
+94506,Kaiser Foundation Health Plan Mid-Atlantic States ,DC
+75753,Optimum Choice ,DC
+41842,UnitedHealthcare ,DC
+67190,Aetna Life ,DE
+29497,Aetna Life ,DE
+13537,Coventry Health and Life,DE
+81914,Coventry Health Care ,DE
+76168,Highmark Health ,DE
+78960,John Alden Life ,DE
+97569,Optimum Choice ,DE
+97889,Time ,DE
+61021,UnitedHealthcare ,DE
+18628,Aetna Life ,FL
+23841,Aetna Life ,FL
+42204,All Savers ,FL
+19898,AvMed ,FL
+16842,Blue Cross and Blue Shield,FL
+66966,Capital Health Plan,FL
+21663,Celtic ,FL
+48121,Cigna Health and Life ,FL
+76089,Coventry Health and Life Insurance Co,FL
+57451,Coventry Health Care ,FL
+92120,Coventry Health Plan ,FL
+56503,Florida Health Care Plan ,FL
+40442,Freedom Life Insurance,FL
+27357,Health First Health Plans ,FL
+77150,Health First Insurance ,FL
+30252,Health Options ,FL
+99308,Humana ,FL
+15980,Humana ,FL
+35783,Humana ,FL
+41240,John Alden Life ,FL
+54172,Molina Healthcare ,FL
+80779,Neighborhood Health Partnership ,FL
+51398,Preferred Medical Plan ,FL
+86382,Sunshine State Health Plan,FL
+62662,Time ,FL
+43839,UnitedHealthcare ,FL
+17341,UnitedHealthcare Life ,FL
+68398,UnitedHealthcare ,FL
+82824,Aetna Life ,GA
+83978,Aetna Life ,GA
+83761,Alliant Health Plans,GA
+82894,Athens Area Health Plan Select ,GA
+63411,Blue Cross and Blue Shield ,GA
+49046,Blue Cross Blue Shield Healthcare Plan ,GA
+24775,Celtic ,GA
+50491,Cigna Health and Life ,GA
+65890,Coventry Health and Life,GA
+47783,Coventry Health Care ,GA
+38835,Federated Mutual ,GA
+72796,Freedom Life Insurance,GA
+93332,Humana ,GA
+37001,Humana ,GA
+50313,John Alden Life ,GA
+89942,Kaiser Foundation Health Plan,GA
+82302,Kaiser Permanente ,GA
+12442,Nippon Life ,GA
+45495,Peach State Health Plan,GA
+20544,Time ,GA
+30552,UnitedHealthcare Ins Co Valley,GA
+13535,UnitedHealthcare ,GA
+43802,UnitedHealthcare ,GA
+14479,Family Health Hawaii mbs,HI
+56682,Hawaii Medical Assurance Association,HI
+18350,Hawaii Medical Service Association,HI
+60612,Kaiser Foundation Health Plan ,HI
+54179,UnitedHealthcare ,HI
+95366,University Health Alliance (UHA),HI
+74980,Avera Health Plans ,IA
+87194,Celtic ,IA
+71268,CoOportunity Health,IA
+51820,Coventry Health and Life Insurance Co,IA
+18973,Coventry Health Care ,IA
+41397,Federated Mutual ,IA
+27651,Gundersen Health Plan ,IA
+77638,Health Alliance Midwest ,IA
+67580,John Alden Life ,IA
+50735,Medical Associates Health Plans,IA
+51474,Pekin Life ,IA
+85930,Sanford Health Plan,IA
+48569,Standard Security Life,IA
+68184,Time ,IA
+88678,UnitedHealthcare ,IA
+56610,UnitedHealthcare Plan River Valley ,IA
+25896,Wellmark Health Plan,IA
+72160,Wellmark ,IA
+61175,Aetna Life ,ID
+61589,Blue Cross Health Service ,ID
+59765,BridgeSpan Health Company,ID
+52156,John Alden Life ,ID
+60597,PacificSource Health Plans,ID
+44648,Regence Blue Shield,ID
+26002,SelectHealth,ID
+28218,Time ,ID
+99129,Aetna Life ,IL
+72547,Aetna Life ,IL
+36096,Blue Cross Blue Shield,IL
+27833,Celtic ,IL
+35670,Coventry Health & Life Co,IL
+96601,Coventry Health Care ,IL
+66143,Federated Mutual ,IL
+82506,Freedom Life Insurance,IL
+20129,Health Alliance Medical Plans ,IL
+58288,Humana ,IL
+68303,Humana ,IL
+57020,John Alden Life ,IL
+79763,Land Mutual Health ,IL
+59311,Madison National Life,IL
+24301,Medical Associates Health Plans,IL
+53586,Nippon Life ,IL
+18389,Pekin Life ,IL
+40448,Standard Security Life,IL
+67807,Time ,IL
+92476,UnitedHealthcare Ins Co,IL
+34446,UnitedHealthcare Ins Co Valley,IL
+42529,UnitedHealthcare ,IL
+58239,UnitedHealthcare Plan River Valley ,IL
+32378,Aetna Life ,IN
+36373,All Savers ,IN
+17575,Anthem Ins Companies (Anthem BCBS),IN
+76179,Celtic ,IN
+35065,Coordinated Care Corporation Indiana,IN
+11104,Federated Mutual ,IN
+43442,Humana ,IN
+99791,Humana ,IN
+95074,John Alden Life ,IN
+85320,MDwise ,IN
+43499,Medical Mutual,IN
+98761,Nippon Life ,IN
+79828,Pekin Life ,IN
+50816,Physicians Health Plan Indiana ,IN
+67920,Southeastern Indiana Health Organization,IN
+50442,Standard Security Life,IN
+91842,Time ,IN
+62052,Trustmark Life ,IN
+72850,UnitedHealthcare ,IN
+35755,US Health and Life ,IN
+84600,Aetna Life ,KS
+94248,Blue Cross and Blue Shield City,KS
+18558,Blue Cross and Blue Shield ,KS
+34368,Celtic ,KS
+61430,Coventry Health and Life,KS
+65598,Coventry Health Care ,KS
+96352,Federated Mutual ,KS
+54822,Freedom Life Insurance,KS
+49857,Humana ,KS
+19968,Humana ,KS
+98618,John Alden Life ,KS
+71122,Time ,KS
+94968,UnitedHealthcare ,KS
+77029,All Savers ,KY
+36239,Anthem Health Plans(Anthem BCBS),KY
+40586,Bluegrass Family Health ,KY
+15411,Humana ,KY
+33734,John Alden Life ,KY
+77894,Kentucky Health Cooperative,KY
+19503,Time ,KY
+23671,UnitedHealthcare Ltd,KY
+45920,UnitedHealthcare ,KY
+81941,Aetna Life ,LA
+14030,Aetna Life ,LA
+93653,All Savers ,LA
+22381,Coventry Health and Life,LA
+19913,Freedom Life Insurance,LA
+19636,HMO Louisiana ,LA
+44965,Humana ,LA
+89219,John Alden Life ,LA
+67202,Louisiana Health Cooperative ,LA
+97176,Louisiana Health Service & Indemnity Company,LA
+31434,Time ,LA
+69842,UnitedHealthcare ,LA
+38499,UnitedHealthcare ,LA
+67243,Vantage Health Plan ,LA
+42690,Blue Cross and Blue Shield HMO Blue  ,MA
+24675,Blue Cross and Blue Shield  ,MA
+82569,Boston Medical Center Health Plan  ,MA
+31234,CeltiCare Health Plan,MA
+88950,ConnectiCare  ,MA
+88806,Fallon Community Health Plan  ,MA
+52710,Fallon Health & Life Assurance Company,MA
+36046,Harvard Pilgrim Health Care  ,MA
+34484,Health New England  ,MA
+95878,HPHC   ,MA
+73331,Minuteman Health ,MA
+41304,Neighborhood Health Plan,MA
+29125,Tufts Associated Health Maintenance Org,MA
+59763,Tufts Health Public Plans  ,MA
+38712,Tufts ,MA
+31779,UnitedHealthcare ,MA
+66516,Aetna Life ,MD
+70767,Aetna Life ,MD
+36677,All Savers ,MD
+28137,CareFirst BlueChoice ,MD
+45532,CareFirst ,MD
+68541,Coventry Health and Life,MD
+14468,Coventry Health Care ,MD
+72564,Evergreen Health Cooperative ,MD
+94084,GHMSI,MD
+90296,Kaiser Foundation Health Plan Mid-Atlantic States ,MD
+65635,MAMSI Life and Health ,MD
+72375,Optimum Choice ,MD
+23620,UnitedHealthcare ,MD
+31112,UnitedHealthcare Mid-Atlantic ,MD
+53357,Aetna Life ,ME
+48396,Anthem Health Plans(Anthem BCBS),ME
+96667,Harvard Pilgrim Health Care ,ME
+11593,HPHC  ,ME
+33653,Maine Community Health Options,ME
+85076,The MEGA Life and Health ,ME
+90214,UnitedHealthcare ,ME
+81068,Aetna Life ,MI
+52670,All Savers ,MI
+67577,Alliance Health and Life ,MI
+98185,Blue Care Network,MI
+15560,Blue Cross Blue Shield Mutual ,MI
+35443,Celtic ,MI
+41895,Consumers Mutual Insurance,MI
+82649,Federated Mutual ,MI
+37651,Health Alliance Plan (HAP),MI
+59830,HealthPlus ,MI
+13667,HealthPlus,MI
+62294,Humana ,MI
+46275,Humana ,MI
+79970,John Alden Life ,MI
+20393,McLaren Health Plan,MI
+58594,Meridian Health Plan ,MI
+40047,Molina Healthcare ,MI
+59140,Nippon Life ,MI
+23592,Paramount Care,MI
+95233,Paramount ,MI
+20662,PHP ,MI
+60829,Physicians Health Plan,MI
+29698,Priority Health,MI
+29241,Priority Health  (PHIC),MI
+89029,Time ,MI
+67183,Total Health Care USA ,MI
+63631,UnitedHealthcare ,MI
+45002,UnitedHealthcare Life ,MI
+58996,US Health and Life ,MI
+49316,BCBSM ,MN
+60769,Federated Mutual ,MN
+34102,Group Health Plan ,MN
+70373,Gundersen Health Plan Minnesota ,MN
+85654,HealthPartners ,MN
+79888,HealthPartners ,MN
+56971,John Alden Life ,MN
+65847,Medica Health Plans,MN
+31616,Medica ,MN
+97624,PreferredOne Community Health Plan,MN
+88102,PreferredOne ,MN
+52346,Sanford Health Plan,MN
+27439,Time ,MN
+85736,UCare Minnesota,MN
+32898,Aetna Life ,MO
+48161,Aetna Life ,MO
+34762,Blue Cross and Blue Shield City,MO
+99723,Celtic ,MO
+44527,Coventry Health & Life Insurance Co,MO
+44240,Coventry Health and Life,MO
+96384,Cox Health Systems ,MO
+64701,Federated Mutual ,MO
+32753,Healthy Alliance Life Co(Anthem BCBS),MO
+92766,HMO Missouri (Anthem BCBS),MO
+30613,Humana ,MO
+49221,John Alden Life ,MO
+12363,Standard Security Life,MO
+14026,Time ,MO
+27401,Trustmark Life ,MO
+95426,UnitedHealthcare ,MO
+14162,UnitedHealthcare Life ,MO
+26781,All Savers ,MS
+11721,Blue Cross & Blue Shield,MS
+83808,Coventry Health and Life,MS
+38420,Federated Mutual ,MS
+96734,Freedom Life Insurance,MS
+48963,Humana ,MS
+49900,John Alden Life ,MS
+94237,Magnolia Health Plan,MS
+45521,Time ,MS
+98805,UnitedHealthcare ,MS
+61794,UnitedHealthcare Life ,MS
+97560,UnitedHealthcare ,MS
+30751,Blue Cross and Blue Shield,MT
+16621,Celtic ,MT
+63342,Independence American Ins Co,MT
+64206,John Alden Life ,MT
+49669,Madison National Life,MT
+32225,Montana Health Cooperative,MT
+23603,PacificSource Health Plans,MT
+24867,Time ,MT
+46621,UnitedHealthcare ,MT
+61671,Aetna Life ,NC
+61644,Aetna Life ,NC
+72487,All Savers ,NC
+11512,Blue Cross and Blue Shield,NC
+44007,Celtic ,NC
+40411,Cigna Health and Life ,NC
+94459,Coventry Health & Life ,NC
+56346,Coventry Health Care Carolinas ,NC
+24588,Federated Mutual ,NC
+43283,FirstCarolinaCare ,NC
+32237,Humana ,NC
+59977,John Alden Life ,NC
+76871,Standard Security Life,NC
+87696,Time ,NC
+58658,UnitedHealthcare Ins Co Valley,NC
+69347,UnitedHealthcare ,NC
+54332,UnitedHealthcare Carolina ,NC
+37160,Blue Cross Blue Shield Dakota,ND
+99806,John Alden Life ,ND
+73751,Medica Health Plans,ND
+39364,Medica ,ND
+89364,Sanford Health Plan,ND
+55105,Time ,ND
+29678,Blue Cross and Blue Shield,NE
+43198,CoOportunity Health,NE
+79636,Coventry Health and Life Insurance Co,NE
+15438,Coventry Health Care ,NE
+47340,Federated Mutual ,NE
+77931,Health Alliance Midwest ,NE
+81966,Humana ,NE
+80698,John Alden Life ,NE
+89156,Standard Security Life,NE
+19524,Time ,NE
+73102,UnitedHealthcare ,NE
+57601,Anthem Health Plans(Anthem BCBS),NH
+75841,Celtic ,NH
+59025,Harvard Pilgrim Health Care,NH
+71616,HPHC  ,NH
+96751,Matthew Thornton Hlth Plan (Anthem BCBS),NH
+42260,Time ,NH
+51889,UnitedHealthcare ,NH
+82884,Aetna Life ,NJ
+89217,Aetna Life ,NJ
+77606,AmeriHealth HMO ,NJ
+91762,AmeriHealth Ins Company Jersey,NJ
+23458,Cigna Health and Life ,NJ
+41014,Cigna HealthCare Jersey ,NJ
+10191,Freelancers CO-OP Jersey ,NJ
+13953,Horizon Healthcare Jersey ,NJ
+91661,Horizon Healthcare Services ,NJ
+77263,Oxford Health Insurance ,NJ
+48834,Oxford Health Plans (NJ) ,NJ
+75605,Blue Cross Blue Shield Mexico,NM
+97132,Lovelace Health System ,NM
+19722,Molina Health Care Mexico ,NM
+93091,New Mexico Health Connections,NM
+57173,Presbyterian Health Plan ,NM
+52744,Presbyterian  ,NM
+97646,Time ,NM
+90762,UnitedHealthcare ,NM
+19298,Aetna Life ,NV
+65779,Aetna Life ,NV
+27990,Aetna Life ,NV
+68307,Celtic ,NV
+49021,Coventry Health & Life ,NV
+95865,Health Plan ,NV
+60156,HMO Colorado  dba HMO Nevada,NV
+41094,Hometown Health Plan ,NV
+85266,Hometown Health Providers Ins Co ,NV
+93696,Humana ,NV
+20895,Humana ,NV
+87446,John Alden Life ,NV
+34996,Nevada Health CO-OP,NV
+16698,Prominence HealthFirst,NV
+68524,Prominence Preferred Health  ,NV
+33670,Rocky Mountain Hospital and Medical Service  dba Anthem Blue Cross and Blue Shield,NV
+83198,Sierra Health and Life Ins Company ,NV
+29211,Time ,NV
+74222,UnitedHealthcare ,NV
+50138,Aetna Life ,NY
+17210,Aetna Life ,NY
+57165,Affinity Health Plan ,NY
+31808,American Progressive Life & Health  York,NY
+49526,BlueCross BlueShield New York,NY
+36346,BlueShield New York,NY
+94788,CDPHP,NY
+92551,CDPHP Universal Benefits ,NY
+44113,Empire HealthChoice Assurance ,NY
+80519,Empire HealthChoice HMO ,NY
+78124,Excellus Health Plan ,NY
+71644,Freelancers Health Service Corporation d/b/a Health Republic Insurance York,NY
+58707,Freelancers  ,NY
+88000,Group Health orporated,NY
+88582,Health Insurance Plan New York,NY
+91237,Healthfirst PHSP ,NY
+40064,HealthNow New York,NY
+70552,Independent Health Association ,NY
+18029,Independent Health Benefits Corporation,NY
+83744,Managed Health ,NY
+11177,MetroPlus Health Plan,NY
+56184,MVP Health Plan ,NY
+89846,MVP Health Services Corp,NY
+25303,New York State Catholic Health Plan ,NY
+82483,North Shore-LIJ  ,NY
+74289,Oscar Insurance Corporation,NY
+85629,Oxford Health Insurance ,NY
+26420,Oxford Health Plans (NY) ,NY
+54297,UnitedHealthcare Ins Co York,NY
+54235,UnitedHealthcare York ,NY
+84867,Aetna Life ,OH
+67129,Aetna Life ,OH
+28162,AultCare ,OH
+41047,Buckeye Community Health Plan,OH
+77552,CareSource,OH
+62352,Celtic ,OH
+29276,Community (Anthem BCBS),OH
+16204,Coordinated Health Mutual ,OH
+98894,Coventry Health and Life,OH
+96800,Federated Mutual ,OH
+92036,HealthSpan,OH
+20126,HealthSpan Integrated Care,OH
+66083,Humana ,OH
+97596,Humana ,OH
+50498,John Alden Life ,OH
+99969,Medical Health Insuring Corp,OH
+80627,Medical Mutual,OH
+23340,Medical Mutual,OH
+64353,MOLINA HEALTHCARE,OH
+56073,Nippon Life ,OH
+74313,Paramount ,OH
+76169,Standard Security Life,OH
+52664,Summa  ,OH
+83396,The Health Plan Upper Ohio Valley,OH
+98810,THP ,OH
+14650,Time ,OH
+33232,UnitedHealthcare Ins Co Valley,OH
+56726,UnitedHealthcare ,OH
+61724,UnitedHealthcare Life ,OH
+76275,Aetna Life ,OK
+66946,Aetna Life ,OK
+87571,Blue Cross Blue Shield,OK
+62505,Celtic ,OK
+98905,CommunityCare HMO ,OK
+87698,CommunityCare Life & Health Insurance Co,OK
+53524,Coventry Health and Life,OK
+76668,Coventry Health Care ,OK
+27243,Federated Mutual ,OK
+82209,Freedom Life Insurance,OK
+85408,GlobalHealth ,OK
+23468,Humana ,OK
+67088,John Alden Life ,OK
+29176,Time ,OK
+85757,UnitedHealthcare ,OK
+98704,UnitedHealthcare Life ,OK
+32536,ATRIO Health Plans,OR
+63474,BridgeSpan Health Company,OR
+99389,Community Care ,OR
+10940,Health Net Health Plan ,OR
+96383,Health Republic ,OR
+71287,Kaiser Foundation Healthplan NW,OR
+85804,LifeWise Health Plan,OR
+39424,Moda Health Plan ,OR
+10091,PacificSource Health Plans,OR
+56707,Providence Health Plan,OR
+77969,Regence BlueCross BlueShield,OR
+74571,Time ,OR
+95417,Trillium Community Health Plan,OR
+59129,Trustmark Life ,OR
+90175,UnitedHealthcare ,OR
+64844,Aetna Life ,PA
+33906,Aetna Life ,PA
+45127,Capital Advantage Assurance Company,PA
+82795,Capital Advantage  CAIC,PA
+10842,Celtic ,PA
+80148,Federated Mutual ,PA
+55957,First Priority Life  ,PA
+22444,Geisinger Health Plan,PA
+75729,Geisinger Quality Options,PA
+91303,HealthAmerica Pennsylvania ,PA
+93838,HealthAssurance PA ,PA
+70194,Highmark Health ,PA
+83731,Highmark Health ,PA
+33709,Highmark Health ,PA
+31609,Independence Blue Cross (QCC Ins Co),PA
+48788,Inter-County Hospital Plan,PA
+58819,John Alden Life ,PA
+53789,Keystone Health Plan Central,PA
+33871,Keystone Health Plan East ,PA
+38949,Keystone Health Plan West,PA
+19068,Time ,PA
+23489,UnitedHealthcare ,PA
+45404,UnitedHealthcare Life ,PA
+62560,UPMC Health Coverage ,PA
+16481,UPMC Health Network ,PA
+16322,UPMC Health Options ,PA
+52899,UPMC Health Plan ,PA
+15287,Blue Cross & Blue Shield Island,RI
+77514,Neighborhood Health Plan Island,RI
+90010,Tufts Associated Health Maintenance Org,RI
+26322,Tufts ,RI
+90117,UnitedHealthcare ,RI
+79881,UnitedHealthcare England ,RI
+22369,Aetna Life ,SC
+26065,Blue Cross and Blue Shield Carolina,SC
+49532,BlueChoice HealthPlan Carolina ,SC
+60067,Celtic ,SC
+54362,Cigna Health and Life ,SC
+65122,Consumers' Choice Health ,SC
+56262,Coventry Health & Life ,SC
+41614,Coventry Health Care Carolinas ,SC
+33609,Federated Mutual ,SC
+80431,Freedom Life Insurance,SC
+17808,Humana ,SC
+89728,John Alden Life ,SC
+14820,Nippon Life ,SC
+73714,Standard Security Life,SC
+39996,Time ,SC
+64146,UnitedHealthcare Ins Co Valley,SC
+57860,UnitedHealthcare ,SC
+39481,UnitedHealthcare Life ,SC
+60536,Avera Health Plans ,SD
+66837,Coventry Health and Life Insurance Co,SD
+64255,Federated Mutual ,SD
+96594,Medica ,SD
+31195,Sanford Health Plan,SD
+62210,South Dakota State Medical Holding Company ,SD
+77144,Time ,SD
+50305,Wellmark Dakota,SD
+31552,Aetna Life ,TN
+14002,BlueCross BlueShield,TN
+70111,Celtic ,TN
+99248,Cigna Health and Life ,TN
+66842,Community Health Alliance Mutual ,TN
+78575,Coventry Health and Life,TN
+83463,Federated Mutual ,TN
+93222,Humana ,TN
+82120,Humana ,TN
+40778,John Alden Life ,TN
+17032,Nippon Life ,TN
+60299,Time ,TN
+10958,UnitedHealthcare Ins Co Valley,TN
+69443,UnitedHealthcare ,TN
+48069,UnitedHealthcare Life ,TN
+58840,Aetna Life ,TX
+91716,Aetna Life ,TX
+63509,Allegian ,TX
+33602,Blue Cross Blue Shield,TX
+29418,Celtic ,TX
+55409,Cigna Health and Life ,TX
+46224,Community First Health Plans ,TX
+27248,Community Health Choice ,TX
+19046,Federated Mutual ,TX
+53799,Freedom Life Insurance,TX
+32673,Humana ,TX
+63141,Humana ,TX
+58483,John Alden Life ,TX
+82595,Madison National Life,TX
+30609,Memorial Hermann Health  ,TX
+45786,Molina Healthcare,TX
+45125,Nippon Life ,TX
+37392,Prominence HealthFirst,TX
+40788,Scott and White Health Plan,TX
+71837,Sendero Health Plans ,TX
+26539,SHA LLC DBA FirstCare Health Plans,TX
+97679,Standard Security Life,TX
+87226,Superior Health Plan,TX
+28020,Time ,TX
+98809,UnitedHealthcare ,TX
+70619,UnitedHealthcare Life ,TX
+40220,UnitedHealthcare ,TX
+81795,USAble Mutual ,TX
+38927,Aetna Life ,UT
+27619,Arches Mutual ,UT
+34541,BridgeSpan Health Company,UT
+46958,Humana ,UT
+56764,Humana ,UT
+18167,Molina Healthcare,UT
+22013,Regence BlueCross BlueShield,UT
+68781,SelectHealth,UT
+44526,Time ,UT
+97462,UnitedHealthcare ,UT
+43129,UnitedHealthcare Life ,UT
+42261,University - Healthy Premier,UT
+66413,UnitedHealthcare ,UT
+93187,Aetna Life ,VA
+38234,Aetna Life ,VA
+16064,Anthem Health Plans ,VA
+10207,CareFirst BlueChoice ,VA
+93848,Coventry Health & Life Insurance Co,VA
+99663,Coventry Health Care ,VA
+13433,Federated Mutual ,VA
+40308,Group Hospitalization and Medical Services ,VA
+88380,HealthKeepers ,VA
+50727,Humana ,VA
+12028,Innovation Health ,VA
+86443,Innovation Health Plan ,VA
+96835,John Alden Life ,VA
+95185,Kaiser Foundation Health Plan Mid-Atlantic States ,VA
+89242,Optima Health ,VA
+20507,Optima Health Plan,VA
+24251,Optimum Choice ,VA
+15668,Piedmont Community HealthCare ,VA
+50102,Time ,VA
+66663,United Healthcare Life ,VA
+25978,UnitedHealthcare ,VA
+89498,UnitedHealthcare Plan River Valley ,VA
+34673,Aetna Life ,WA
+69364,Asuris Northwest Health,WA
+53732,BridgeSpan Health Company,WA
+18581,Community Health Plan,WA
+61836,Coordinated Care Corporation,WA
+80473,Group Health Cooperative,WA
+25768,Group Health Options ,WA
+23371,Kaiser Foundation Healthplan NW,WA
+38498,LifeWise Health Plan,WA
+65907,Moda Health Plan ,WA
+84481,Molina Healthcare ,WA
+49831,Premera Blue Cross,WA
+71281,Regence BlueCross BlueShield,WA
+87718,Regence BlueShield,WA
+42277,Time ,WA
+94388,Trustmark Life ,WA
+18699,UnitedHealthcare ,WA
+43861,UnitedHealthcare ,WA
+38752,Aetna Life ,WI
+39924,All Savers ,WI
+90028,BCBS(Anthem BCBS),WI
+44197,Celtic ,WI
+87416,Common Ground Healthcare Cooperative,WI
+79475,Compcare Health Serv Ins Co(Anthem BCBS),WI
+38345,Dean Health Plan,WI
+92708,Federated Mutual ,WI
+94529,Group Health Cooperative- SCW,WI
+91058,Gundersen Health Plan ,WI
+47342,Health Tradition Health Plan,WI
+20173,HealthPartners ,WI
+91604,Humana ,WI
+55103,Humana ,WI
+94720,John Alden Life ,WI
+57845,Medica Health Plans,WI
+57637,Medica ,WI
+64772,Medical Associates Health Plans,WI
+58326,MercyCare HMO ,WI
+35334,MercyCare ,WI
+52697,Molina Healthcare ,WI
+81413,Network Health Plan,WI
+58564,Physicians Plus Insurance Corporation,WI
+38166,Security Health Plan ,WI
+94073,Time ,WI
+14630,Together with Children's Community Health Plan,WI
+59158,UnitedHealthcare ,WI
+89106,UnitedHealthcare Life ,WI
+80180,UnitedHealthcare ,WI
+37833,Unity Health Plans Insurance Corporation,WI
+22554,US Health and Life ,WI
+81974,Wisconsin Physicians Svc Insurance Corp,WI
+84670,WPS Health Plan ,WI
+26661,Coventry Health & Life Insurance Co,WV
+33577,Coventry Health Care Virginia ,WV
+14414,Federated Mutual ,WV
+31274,Highmark Health ,WV
+48421,John Alden Life ,WV
+95628,Optimum Choice ,WV
+72982,The Health Plan Upper Ohio Valley,WV
+59772,THP ,WV
+35992,Time ,WV
+77060,UnitedHealthcare ,WV
+79022,Aetna Life ,WY
+11269,Blue Cross Blue Shield,WY
+49290,Celtic ,WY
+47823,Freedom Life Insurance,WY
+72208,John Alden Life ,WY
+29941,Time ,WY
+49714,UnitedHealthcare ,WY
+53189,WINhealth Partners,WY
+13627,Blue Cross Blue Shield,VT
+77566,MVP Health Plan ,VT
+86584,Aspirus Arise,WI
+45636,CareSource,KY
+62033,MDwise ,IN
+20305,Medica ,NE
+37204,Piedmont Community HealthCare ,VA
+90714,Magnolia Health Plan,MS
+39520,Medica ,KS
+36194,Florida Hospital Care Advantage,FL
+72034,Christus Health Plan,NM
+20069,Oscar Insurance Corporation,TX
+26734,Premier Health Plan,OH
+87928,Wellmark ,IA
+53882,Cigna Health and Life ,IL
+93078,Medica ,IA
+50328,CareSource,WV
+27811,Blue Cross and Blue Shield ,KS
+74917,McLaren Health Plan,MI
+74406,Wellmark ,IA
+54192,CareSource,IN
+41921,Cigna Health and Life ,VA
+38599,United Healthcare Life ,VA
+66252,Christus Health Plan,TX
+73943,Cigna Health and Life ,NC
+61163,Minuteman Health ,NH
+70893,Peach State Health Plan,GA
+74483,Cigna Health and Life ,MO
+44794,Aetna Life ,NE
