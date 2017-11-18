@@ -4,5 +4,4 @@ mysite/.idea/
 mysite/home/__pycache__/
 mysite/home/migrations/
 mysite/utils/__pycache__/
-mysite/node_modules/
 mysite/database/health_insurance.db
