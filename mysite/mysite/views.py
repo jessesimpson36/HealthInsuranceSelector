@@ -6,12 +6,17 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.http import HttpResponseNotFound
 from django.http import HttpResponseRedirect
-
+from django.conf import settings
+BASE_DIR = os.getcwd()
+print(BASE_DIR)
 from .forms import HealthInsuranceInputForm
 from .forms import RecommendedHealthInsurances
-# sys.path.append("/home/jesse/PycharmProjects/DDDM/mysite/database")
-sys.path.insert(0, os.path.join( os.getcwd(), "mysite" ,"database") )
-os.chdir( os.path.join( "database"))
+# sys.path.append( os.path.join( BASE_DIR, "database") )
+sys.path.insert(0, os.path.join( BASE_DIR , "database") )
+os.chdir( os.path.join( BASE_DIR, "database"))
+# os.chdir("/home/jesse/PycharmProjects/DDDM/mysite/database/")
+print(os.getcwd())
+print(sys.path)
 import databasefunctions as dbf
 
 
@@ -22,10 +27,8 @@ def input(request):
         # print(form.zipcode)
         if form.is_valid():
             # process the data in form.cleaned_data as required
-            if form.data['months_tobacco_free']:
-                frame = dbf.hard_filters_pg1("health_insurance.db", form.data['zipcode'], form.data['age'], 'Yes')
-            else:
-                frame = dbf.hard_filters_pg1("health_insurance.db", form.data['zipcode'], form.data['age'], 'No')
+            frame = dbf.hard_filters_pg1("health_insurance.db", form.data['zipcode'], form.data['age'], form.data['do_you_smoke'])
+
             # redirect to a new URL:
 
             resultsList = []
@@ -44,5 +47,3 @@ def input(request):
 
     return render(request, 'index.html', {'form': form})
 
-
-os.chdir(os.path.join(".."))

@@ -1,9 +1,14 @@
 from django import forms
 import sys
 import os
-sys.path.append( os.path.join( os.getcwd(), "database") )
+from django.conf import settings
+# BASE_DIR = settings.BASE_DIR
+
+BASE_DIR = os.getcwd()
+
+# sys.path.append( os.path.join( os.getcwd(), "database") )
 sys.path.insert(0, os.path.join( os.getcwd(), "database") )
-os.chdir(os.path.join( os.getcwd(), "database"))
+os.chdir(os.path.join( BASE_DIR, "database"))
 import databasefunctions as dbf
 
 DISEASE_CHOICES = (
@@ -55,12 +60,17 @@ INN_COINSURANCE_CHOICES = (
     (3,'76-100'),
 )
 
+YES_NO = (
+    ("Yes", "Yes"),
+    ("No", "No"),
+)
+
 
 class HealthInsuranceInputForm(forms.Form):
     # hard filters
     zipcode = forms.CharField(label='Zip Code', max_length=5, min_length=5)
     age = forms.IntegerField(label='Age', min_value=1, max_value=150)
-    months_tobacco_free = forms.BooleanField(label='Do you smoke?', required=False)
+    do_you_smoke = forms.ChoiceField(choices=YES_NO, widget=forms.RadioSelect, label="Do you smoke?")
     # soft filters
     benefits = forms.MultipleChoiceField(choices=BENEFIT_CHOICES, widget=forms.CheckboxSelectMultiple(), required=False)
     diseases = forms.MultipleChoiceField(choices=DISEASE_CHOICES, widget=forms.CheckboxSelectMultiple(), required=False)
@@ -88,4 +98,5 @@ class RecommendedHealthInsurances(forms.Form):
     bbb_rating = "A+"
     customer_rating = "4.5"
 
-os.chdir(os.path.join(".."))
+if __name__ != "__main__":
+    os.chdir(os.path.join(".."))
