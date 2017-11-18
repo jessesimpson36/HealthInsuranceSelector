@@ -1,4 +1,10 @@
 from django import forms
+import sys
+import os
+sys.path.append( os.path.join( os.getcwd(), "database") )
+sys.path.insert(0, os.path.join( os.getcwd(), "database") )
+os.chdir(os.path.join( os.getcwd(), "database"))
+import databasefunctions as dbf
 
 DISEASE_CHOICES = (
     ('asthma', 'Asthma'),
@@ -11,6 +17,8 @@ DISEASE_CHOICES = (
     ('pregnancy', 'Pregnancy'),
     ('weight loss programs', 'Weight Loss Programs'),
 )
+
+BENEFIT_CHOICES = dbf.get_benefits("health_insurance.db")
 
 INN_MOOP_CHOICES = (
     (0,'0-100'),
@@ -50,15 +58,34 @@ INN_COINSURANCE_CHOICES = (
 
 class HealthInsuranceInputForm(forms.Form):
     # hard filters
-    zipcode = forms.CharField(label='Zip Code', max_length=100)
-    age = forms.IntegerField(label='Age')
-    months_tobacco_free = forms.IntegerField(label='Number of Months Tobacco Free')
+    zipcode = forms.CharField(label='Zip Code', max_length=5, min_length=5)
+    age = forms.IntegerField(label='Age', min_value=1, max_value=150)
+    months_tobacco_free = forms.BooleanField(label='Do you smoke?', required=False)
     # soft filters
-    diseases = forms.MultipleChoiceField(choices=DISEASE_CHOICES, widget=forms.CheckboxSelectMultiple())
-    desired_premium_price = forms.IntegerField(label='Desired Premium Price')
-    desired_in_network_out_of_pocket_maximum = forms.ChoiceField(choices=INN_MOOP_CHOICES, widget=forms.RadioSelect())
-    desired_out_of_network_out_of_pocket_maximum = forms.ChoiceField(choices=OON_MOOP_CHOICES, widget=forms.RadioSelect())
-    desired_in_network_deductible = forms.ChoiceField(choices=INN_DED_CHOICES, widget=forms.RadioSelect())
-    desired_out_of_network_deductible = forms.ChoiceField(choices=OON_DED_CHOICES, widget=forms.RadioSelect())
-    desired_in_network_coinsurance = forms.ChoiceField(choices=INN_COINSURANCE_CHOICES, widget=forms.RadioSelect())
+    benefits = forms.MultipleChoiceField(choices=BENEFIT_CHOICES, widget=forms.CheckboxSelectMultiple(), required=False)
+    diseases = forms.MultipleChoiceField(choices=DISEASE_CHOICES, widget=forms.CheckboxSelectMultiple(), required=False)
+    importance_of_diseases = forms.IntegerField(max_value=10, min_value= 0, widget=forms.TextInput(attrs={'placeholder': '0-10'}), required=False)
+    desired_premium_price = forms.IntegerField(label='Desired Premium Price', required=False)
+    importance_of_premium_prices = forms.IntegerField(max_value=10, min_value=0, widget=forms.TextInput(attrs={'placeholder': '0-10'}), required=False)
+    desired_in_network_out_of_pocket_maximum = forms.ChoiceField(choices=INN_MOOP_CHOICES, widget=forms.RadioSelect(), required=False)
+    importance_of_in_network_out_of_pocket_maximum = forms.IntegerField(max_value=10, min_value=0, widget=forms.TextInput(attrs={'placeholder': '0-10'}), required=False)
+    desired_out_of_network_out_of_pocket_maximum = forms.ChoiceField(choices=OON_MOOP_CHOICES, widget=forms.RadioSelect(), required=False)
+    importance_of_out_of_network_out_of_pocket_maximum = forms.IntegerField(max_value=10, min_value=0, widget=forms.TextInput(attrs={'placeholder': '0-10'}), required=False)
+    desired_in_network_deductible = forms.ChoiceField(choices=INN_DED_CHOICES, widget=forms.RadioSelect(), required=False)
+    importance_of_in_network_deductible = forms.IntegerField(max_value=10, min_value=0, widget=forms.TextInput(attrs={'placeholder': '0-10'}), required=False)
+    desired_out_of_network_deductible = forms.ChoiceField(choices=OON_DED_CHOICES, widget=forms.RadioSelect(), required=False)
+    importance_of_out_of_network_deductible = forms.IntegerField(max_value=10, min_value=0, widget=forms.TextInput(attrs={'placeholder': '0-10'}), required=False)
+    desired_in_network_coinsurance = forms.ChoiceField(choices=INN_COINSURANCE_CHOICES, widget=forms.RadioSelect(), required=False)
+    importance_of_in_network_coinsurance = forms.IntegerField(max_value=10, min_value=0, widget=forms.TextInput(attrs={'placeholder': '0-10'}), required=False)
 
+class RecommendedHealthInsurances(forms.Form):
+    plan_name = "Acer Computer Insurance"
+    premium = "Super Mega Expensive"
+    copay = "80,000"
+    coinsurance = "58%"
+    brochure_link = "http://www.wolfware.com"
+    enrollment_link = "http://www.youtube.com"
+    bbb_rating = "A+"
+    customer_rating = "4.5"
+
+os.chdir(os.path.join(".."))

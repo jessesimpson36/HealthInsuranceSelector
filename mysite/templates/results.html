@@ -4,9 +4,26 @@
 
 {% block body %}
 <form id="resultForm" action="/results/" method="post">
-    <h3>YOYOYO THESE IS DA RESULTS HOME DAWGGG</h3>
-    {{ form.zipcode }} <br>
-    {{ form.age }} <br>
+    <h3 class="text-center">Results</h3>
+
+    <div class="container">
+        {% for resultsObj in resultsList %}
+
+            <label> Plan Name:       </label>    {{ resultsObj.plan_name }} <br>
+            <label> Premium Price    </label>    {{ resultsObj.premium }}   <br>
+            <label> CoPay:           </label>    {{ resultsObj.copay }}     <br>
+            <label> Coinsurance:     </label>    {{ resultsObj.coinsurance }} <br>
+            <label> Brochure Link:   </label>   <a href={{ resultsObj.brochure_link }}>Brochure Link</a><br>
+            <label> Enrollment Link: </label>   <a href={{ resultsObj.enrollment_link }}>{{ resultsObj.enrollment_link }}</a> <br>
+            <label> BBB Ratings:     </label>    {{ resultsObj.bbb_rating }}<br>
+            <label> Customer Ratings:</label>    {{ resultsObj.customer_rating }} / 5 Stars<br><br><br>
+        {% endfor %}
+
+
+        <div id="piechart"></div>
+    </div>
+
+
 </form>
 
 
