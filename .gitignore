@@ -1,2 +1,5 @@
 mysite/mysite/__pycache__/
 .idea/
+mysite/.idea/
+mysite/home/__pycache__/
+mysite/home/migrations/
