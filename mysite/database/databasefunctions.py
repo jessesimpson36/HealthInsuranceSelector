@@ -37,9 +37,10 @@ def close_connection(conn, c):
     conn.close()
 
 
-def hard_filters_pg1(db_loc, zip = None, age = None, tobacco_usage = None):
-    if zip == None or str(zip).strip() == "" or age == None or str(age).strip() == "" or tobacco_usage == None:
+def hard_filters_pg1(db_loc, zip=None, age=None, tobacco_usage=None, disease=None, benefit=None, premium=None):
+    if zip is None or str(zip).strip() == "" or age is None or str(age).strip() == "" or tobacco_usage is None:
         return "Enter all inputs"
+
     search = uszipcode.ZipcodeSearchEngine()
     state = None
     if str(zip).strip() != "":
@@ -48,22 +49,120 @@ def hard_filters_pg1(db_loc, zip = None, age = None, tobacco_usage = None):
         else:
             return "Invalid zipcode"
     conn, c = create_connection(db_loc)
-    if tobacco_usage == "Yes":
-        results = c.execute("SELECT distinct plan_id, smoker_rate FROM cost where state = ? AND age_lower <= ? AND "
-                            "age_higher >= ? ", (state, age, age))
-    else:
-        results = c.execute("SELECT distinct plan_id, indiv_rate FROM cost where state = ? AND age_lower <= ? AND "
-                            "age_higher >= ? ", (state, age, age))
+    hard_df = pd.DataFrame()
+    print(disease is None)
+    print(benefit is None)
+    if disease is not None and benefit is not None:
+        print("Disease/Benefit not null")
+        if tobacco_usage == "No":
+            results = c.execute("select p.planid from plan_attributes p,"
+                                "(select * from cost where state = ? and age_lower <= ? and "
+                                "age_higher >= ? and indiv_rate <= 1.2 * ?) c, benefits b "
+                                "on substr(p.planid, 1, 14) = c.plan_id and p.planid = b.plan_id "
+                                "where p.diseasemanagementprogramsoffered like ? and b.benefit_name = ?",
+                                (state, age, age, premium, "%"+disease+"%", benefit))
+        else:
+            results = c.execute("select p.planid from plan_attributes p,"
+                                "(select * from cost where state = ? and age_lower <= ? and "
+                                "age_higher >= ? and smoker_rate <= 1.2 * ?) c, benefits b "
+                                "on substr(p.planid, 1, 14) = c.plan_id and p.planid = b.plan_id "
+                                "where p.diseasemanagementprogramsoffered like ? and b.benefit_name = ?",
+                                (state, age, age, premium, "%"+disease+"%", benefit))
+        hard_df = pd.DataFrame(results.fetchall())
+        if hard_df.empty:
+            results = c.execute("select p.planid from plan_attributes p,"
+                                "(select * from cost where state = ? and age_lower <= ? and "
+                                "age_higher >= ?) c, benefits b "
+                                "on substr(p.planid, 1, 14) = c.plan_id and p.planid = b.plan_id "
+                                "where p.diseasemanagementprogramsoffered like ? and b.benefit_name = ?",
+                                (state, age, age, "%" + disease + "%", benefit))
+            hard_df = pd.DataFrame(results.fetchall())
+    if disease is None and benefit is not None and hard_df.empty:
+        print("Disease null/Benefit not null")
+        if tobacco_usage == "No":
+            results = c.execute("select p.planid from plan_attributes p,"
+                                "(select * from cost where state = ? and age_lower <= ? and "
+                                "age_higher >= ? and indiv_rate <= 1.2 * ?) c, benefits b "
+                                "on substr(p.planid, 1, 14) = c.plan_id and p.planid = b.plan_id "
+                                "where b.benefit_name = ?",
+                                (state, age, age, premium, benefit))
+        else:
+            results = c.execute("select p.planid from plan_attributes p,"
+                                "(select * from cost where state = ? and age_lower <= ? and "
+                                "age_higher >= ? and smoker_rate <= 1.2 * ?) c, benefits b "
+                                "on substr(p.planid, 1, 14) = c.plan_id and p.planid = b.plan_id "
+                                "where b.benefit_name = ?",
+                                (state, age, age, premium, benefit))
+        hard_df = pd.DataFrame(results.fetchall())
+        if hard_df.empty:
+            results = c.execute("select p.planid from plan_attributes p,"
+                                "(select * from cost where state = ? and age_lower <= ? and "
+                                "age_higher >= ?) c, benefits b "
+                                "on substr(p.planid, 1, 14) = c.plan_id and p.planid = b.plan_id "
+                                "where b.benefit_name = ?",
+                                (state, age, age, benefit))
+            hard_df = pd.DataFrame(results.fetchall())
+    if benefit is None and disease is not None and hard_df.empty:
+        print("Disease not null/Benefit null")
+        if tobacco_usage == "No":
+            results = c.execute("select p.planid from plan_attributes p,"
+                                "(select * from cost where state = ? and age_lower <= ? and "
+                                "age_higher >= ? and indiv_rate <= 1.2 * ?) c "
+                                "on substr(p.planid, 1, 14) = c.plan_id "
+                                "where p.diseasemanagementprogramsoffered like ?",
+                                (state, age, age, premium, "%" + disease + "%"))
+        else:
+            results = c.execute("select p.planid from plan_attributes p,"
+                                "(select * from cost where state = ? and age_lower <= ? and "
+                                "age_higher >= ? and smoker_rate <= 1.2 * ?) c "
+                                "on substr(p.planid, 1, 14) = c.plan_id "
+                                "where p.diseasemanagementprogramsoffered like ?",
+                                (state, age, age, premium, "%" + disease + "%"))
+        hard_df = pd.DataFrame(results.fetchall())
+        if hard_df.empty:
+            results = c.execute("select p.planid from plan_attributes p,"
+                                "(select * from cost where state = ? and age_lower <= ? and "
+                                "age_higher >= ?) c "
+                                "on substr(p.planid, 1, 14) = c.plan_id "
+                                "where p.diseasemanagementprogramsoffered like ?",
+                                (state, age, age, "%" + disease + "%"))
+            hard_df = pd.DataFrame(results.fetchall())
+    if disease is None and benefit is None or hard_df.empty:
+        print("Disease/Benefit null")
+        if tobacco_usage == "No":
+            results = c.execute("select p.planid from plan_attributes p,"
+                                "(select * from cost where state = ? and age_lower <= ? and "
+                                "age_higher >= ? and indiv_rate <= 1.2 * ?) c "
+                                "on substr(p.planid, 1, 14) = c.plan_id",
+                                (state, age, age, premium))
+        else:
+            results = c.execute("select p.planid from plan_attributes p,"
+                                "(select * from cost where state = ? and age_lower <= ? and "
+                                "age_higher >= ? and smoker_rate <= 1.2 * ?) c "
+                                "on substr(p.planid, 1, 14) = c.plan_id",
+                                (state, age, age, premium))
+        hard_df = pd.DataFrame(results.fetchall())
+        if hard_df.empty:
+            results = c.execute("select p.planid from plan_attributes p,"
+                                "(select * from cost where state = ? and age_lower <= ? and "
+                                "age_higher >= ?) c "
+                                "on substr(p.planid, 1, 14) = c.plan_id",
+                                (state, age, age))
+            hard_df = pd.DataFrame(results.fetchall())
 
-    if not results:
-        print("No plans are available in your area covering your condition. Checking for closest match..")
-        results = c.execute("SELECT * FROM PLAN_ATTRIBUTES where STATECODE = ?" , (state,))
-
-    hard_df = pd.DataFrame(results.fetchall())
-    print(results.description)
     hard_df.columns = [description[0] for description in results.description]
+    print(hard_df.columns)
     close_connection(conn, c)
     return hard_df
+
+
+def hard_filters_pg2(db_loc, hard_df1, med_condition = None, benefit = None):
+    if med_condition == None and benefit == None:
+        return hard_df1
+    conn, c = create_connection(db_loc)
+    plan_id = hard_df1['plan_id'].tolist()
+    if med_condition != None:
+        results =0
 
 def get_plan_names(db_loc, hard_df1):
     conn, c = create_connection(db_loc)

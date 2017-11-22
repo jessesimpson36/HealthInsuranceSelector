@@ -1,8 +1,6 @@
 from django import forms
 import sys
 import os
-from django.conf import settings
-# BASE_DIR = settings.BASE_DIR
 
 BASE_DIR = os.getcwd()
 

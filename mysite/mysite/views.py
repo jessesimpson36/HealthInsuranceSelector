@@ -31,6 +31,13 @@ def input(request):
 
             # redirect to a new URL:
 
+            # this is how we will get the list inputs
+            print( "Benefits:  " + str( form.cleaned_data['benefits'] ) )
+            print( "Benefits Type:  " + str( type( form.cleaned_data['benefits'])) + "\n")
+            print( "Diseases:  " + str( form.cleaned_data['diseases']))
+            print( "Diseases Type:  " + str( type(form.cleaned_data['diseases'])) + "\n")
+
+
             resultsList = []
             results = dbf.get_plan_names("health_insurance.db", frame)
             res = results['Issuer_Name'].tolist()
