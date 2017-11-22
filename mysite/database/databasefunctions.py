@@ -156,14 +156,6 @@ def hard_filters_pg1(db_loc, zip=None, age=None, tobacco_usage=None, disease=Non
     return hard_df
 
 
-def hard_filters_pg2(db_loc, hard_df1, med_condition = None, benefit = None):
-    if med_condition == None and benefit == None:
-        return hard_df1
-    conn, c = create_connection(db_loc)
-    plan_id = hard_df1['plan_id'].tolist()
-    if med_condition != None:
-        results =0
-
 def get_plan_names(db_loc, hard_df1):
     conn, c = create_connection(db_loc)
     res = list(set(hard_df1['plan_id'].apply(lambda x: x[0:5])))
