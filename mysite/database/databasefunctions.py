@@ -31,11 +31,9 @@ def create_connection(db_loc):
     c = conn.cursor()
     return conn, c
 
-
 def close_connection(conn, c):
     c.close()
     conn.close()
-
 
 def hard_filters_pg1(db_loc, zip=None, age=None, tobacco_usage=None, disease=None, benefit=None, premium=None):
     if zip is None or str(zip).strip() == "" or age is None or str(age).strip() == "" or tobacco_usage is None:
@@ -50,8 +48,6 @@ def hard_filters_pg1(db_loc, zip=None, age=None, tobacco_usage=None, disease=Non
             return "Invalid zipcode"
     conn, c = create_connection(db_loc)
     hard_df = pd.DataFrame()
-    print(disease is None)
-    print(benefit is None)
     if disease is not None and benefit is not None:
         print("Disease/Benefit not null")
         if tobacco_usage == "No":
@@ -149,22 +145,100 @@ def hard_filters_pg1(db_loc, zip=None, age=None, tobacco_usage=None, disease=Non
                                 "on substr(p.planid, 1, 14) = c.plan_id",
                                 (state, age, age))
             hard_df = pd.DataFrame(results.fetchall())
-
+    if hard_df.empty:
+        return "No results to show for your area"
     hard_df.columns = [description[0] for description in results.description]
-    print(hard_df.columns)
     close_connection(conn, c)
     return hard_df
 
 
-def get_plan_names(db_loc, hard_df1):
+
+def soft_filters(df, db_loc, age, smoking='No', benefit='Emergency Room Services',
+                 prem=0, coin_in=0, copay_in=0, ded_in=0, moop_in=0, visit=0.5, oo_cntry=0.5):
     conn, c = create_connection(db_loc)
-    res = list(set(hard_df1['plan_id'].apply(lambda x: x[0:5])))
-    query = "SELECT * FROM IssuerID_Name_Mapping where IssuerID IN (" + ','.join(res) + ")"
+    planid = df['p.planid'].tolist()
+    if smoking == 'No':
+        rate_norm_col = "c.rate_norm"
+        rate_col = "c.indiv_rate"
+    else:
+        rate_norm_col = "c.smoker_norm"
+        rate_col = "c.smoker_rate"
+    query = "select distinct p.planId, p.PlanMarketingName, p.IssuerId, p.CountryCoverage, p.planType, p.MOOP, " \
+            "p.diseasemanagementprogramsoffered, p.TEHBInnTier1IndividualMOOP, p.TEHBOutOfNetIndividualMOOP, " \
+            "p.TEHBDedInnTier1Individual, p.TEHBDedOutOfNetIndividual, p.DedInn, i.Issuer_Name, b.copay_in, " \
+            "b.copay_out, b.coinsurance_in, b.coinsurance_out, b.copayin_norm, b.coinsin_norm, " \
+            + rate_norm_col + " as premium_norm, " + rate_col + " as premium, v.visits, v.visits_norm " \
+            "from Plan_Attributes p, benefits b, visits v, cost c, IssuerID_Name_Mapping i " \
+            "on p.PlanId = b.plan_id and p.IssuerId = v.issuer_id " \
+            "and substr(p.planid, 1, 14) = c.plan_id and p.IssuerId = i.IssuerId " \
+            "where p.planId in ('" + '\',\''.join(planid) + "') " \
+            "and b.benefit_name = '" + str(benefit) + \
+            "' and c.age_lower<=" + str(age) + " and c.age_higher>=" + str(age)
     results = c.execute(query)
-    names = pd.DataFrame(results.fetchall())
-    names.columns = [col[0] for col in results.description]
+    soft_df = pd.DataFrame(results.fetchall())
+    soft_df.columns = [description[0] for description in results.description]
+    # df['distance'] = soft_df.apply(lambda x: euclidean(np.array([float(x['CountryCoverage']),
+    #                                                         float(x['MOOP']),
+    #                                                         float(x['DedInn']),
+    #                                                         float(x['copayin_norm']),
+    #                                                         float(x['coinsin_norm']),
+    #                                                         float(x['premium']),
+    #                                                         float(x['visits_norm'])]),
+    #                                               np.array([oo_cntry, moop_in, ded_in, copay_in,
+    #                                                         coin_in, prem, visit])),
+    #                           axis=1)
+
+    df['distance'] = soft_df.apply(lambda x: sum(np.array([float(x['MOOP']), float(x['DedInn']),
+                                                  float(x['copayin_norm']), float(x['coinsin_norm']),
+                                                  float(x['premium_norm'])]) -
+                                                 np.array([moop_in, ded_in, copay_in, coin_in, prem]),
+                                                 ((float(x['CountryCoverage']) - oo_cntry)**2 +
+                                                 (float(x['visits_norm']) - visit) ** 2)**0.5),
+                                   axis=1)
+    df['Price'] = soft_df['premium']
+    df['Plan_Name'] = soft_df['PlanMarketingName']
+    df['Issuer_Name'] = soft_df['Issuer_Name']
+    df['Issuer_ID'] = soft_df['IssuerId']
+    df['Out_Of_Country_Coverage'] = soft_df['CountryCoverage']
+    df['Plan_Type'] = soft_df['PlanType']
+    df['Disease_Management_Programs'] = soft_df['DiseaseManagementProgramsOffered']
+    df['MOOP_IN'] = soft_df['TEHBInnTier1IndividualMOOP']
+    df['MOOP_OUT'] = soft_df['TEHBOutOfNetIndividualMOOP']
+    df['Deductible_IN'] = soft_df['TEHBDedInnTier1Individual']
+    df['Deductible_OUT'] = soft_df['TEHBDedOutOfNetIndividual']
+    df['Copay_IN'] = soft_df['copay_in']
+    df['Copay_OUT'] = soft_df['copay_out']
+    df['Coinsurance_IN'] = soft_df['coinsurance_in']
+    df['Coinsurance_OUT'] = soft_df['coinsurance_out']
+    df['Number_Of_Visits'] = soft_df['visits']
     close_connection(conn, c)
-    return names
+    return_df = df.sort(['distance', 'Price'], ascending=[True, True]).head()
+    return_df.reset_index(drop=True, inplace=True)
+    return return_df
+
+def get_plan_information(db_loc, issuerid, planid):
+    conn, c = create_connection(db_loc)
+
+    results = c.execute("Select * from BBBRatings where issuerid = ?", (issuerid,))
+    ratings = pd.DataFrame(results.fetchall())
+    ratings.columns = [description[0] for description in results.description]
+
+    results = c.execute("Select Pos_Count, Neg_Count, High_Count, Low_Count from Reviews r where issuerid = ?",
+                        (issuerid,))
+    reviews = pd.DataFrame(results.fetchall())
+    reviews.columns = [description[0] for description in results.description]
+
+    results = c.execute("Select benefit_name from benefits where plan_id = ? ", (planid,))
+    benefits = pd.DataFrame(results.fetchall())
+    benefits = benefits[0].tolist()
+
+    results = c.execute("Select URLForEnrollmentPayment, PlanBrochure from Plan_Attributes where PlanId = ?",
+                        (planid,))
+    links = pd.DataFrame(results.fetchall())
+    links.columns = [description[0] for description in results.description]
+
+    return ratings, reviews, benefits, links
+
 
 if __name__ == "__main__":
     hard_filters_pg1()
