@@ -32,24 +32,24 @@ def input(request):
             if form.data['do_you_smoke'] == "Yes":
             # normalize inputs (premium, copay, coinsurance, deductible, moop, visits)
             # the values obtained were found using database maxes and mins
-                if ( form.data['desired_premium_price'] == 0):
+                if ( int( form.data['desired_premium_price']) == 0):
                     premium = 0
                 else:
-                    premium = (form.data['desired_premium_price'] - 73 ) / ( 2673.63 - 73 )
+                    premium = (int( form.data['desired_premium_price'] ) - 73 ) / ( 2673.63 - 73 )
 
             else:
                 if ( form.data['desired_premium_price'] == 0):
                     premium = 0
                 else:
-                    premium = (form.data['desired_premium_price'] - 73.0 )/ (2314.71 - 73)
+                    premium = (int( form.data['desired_premium_price']) - 73.0 )/ (2314.71 - 73)
 
-            copay = (form.data['desired_copay']) / (4500.0)
-            coinsurance = (form.data['desired_in_network_coinsurance'] ) / ( 100.0 )
-            deductible = (form.data['desired_in_network_deductible'] ) / 950.0
-            moop =       (form.data['desired_in_network_out_of_pocket_maximum'] ) / ( 975.0 )
-            visits =     (form.data['visits'] - 1) / ( 250 - 1)
+            copay = (int( form.data['desired_copay'])) / (4500.0)
+            coinsurance = (int( form.data['desired_in_network_coinsurance'] )) / ( 100.0 )
+            deductible = (int( form.data['desired_in_network_deductible']) ) / 950.0
+            moop =       ( int( form.data['desired_in_network_out_of_pocket_maximum'] )) / ( 975.0 )
+            visits =     (int( form.data['number_of_visits']) - 1) / ( 250 - 1)
 
-            frame = dbf.soft_filters(frame, "health_insurance.db", form.data['age'], form.data['do_you_smoke'], form.data['benefits'],
+            soft_frame = dbf.soft_filters(frame, "health_insurance.db", form.data['age'], form.data['do_you_smoke'], form.data['benefits'],
                                      premium, coinsurance, copay, deductible, moop, visits, form.data['out_of_country'])
 
             # this is how we will get the list inputs
@@ -59,16 +59,39 @@ def input(request):
             # print( "Diseases:  " + str( form.cleaned_data['diseases']))
             # print( "Diseases Type:  " + str( type(form.cleaned_data['diseases'])) + "\n")
 
+            print( soft_frame.columns)
+            print( soft_frame.values.tolist() )
 
-            # resultsList = []
+
+            resultsList = []
+            for item in soft_frame.itertuples():
+                temp = BasicHealthInsuranceInfo()
+                temp.issuer_name = item[5]
+                temp.plan_name = item[4]
+                temp.premium_price = item[3]
+                temp.issuer_id = item[6]
+                temp.plan_id = item[1]
+                resultsList.append(temp)
+                print( temp.premium_price)
+                print( temp.plan_name)
+                print( temp.issuer_id)
+                print( temp.plan_id)
+                print( temp.issuer_name + "\n")
+
             # results = dbf.get_plan_information("health_insurance.db", frame)
             # res = results['Issuer_Name'].tolist()
             # for thing in res:
             #     object = BasicHealthInsuranceInfo()
             #     object.plan_name = thing
             #     resultsList.append(object)
+            ratings, reviews, benefits, links = dbf.get_plan_information("health_insurance.db", resultsList[0].issuer_id, resultsList[0].plan_id )
+            print( ratings )
+            print( reviews )
+            print( benefits )
+            print( links )
+            return render(request, 'index.html', {'form': form})
+            # return render(request, 'results.html', {'resultsList': resultsList})
 
-            return render(request, 'results.html', {'resultsList': resultsList})
 
     # if a GET (or any other method) we'll create a blank form
     else:

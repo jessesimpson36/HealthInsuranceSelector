@@ -91,12 +91,14 @@ class HealthInsuranceInputForm(forms.Form):
     number_of_visits = forms.IntegerField(label='How many doctor visits do you typically have per month?', required=False)
     out_of_country = forms.ChoiceField(choices=YES_NO_ALTERNATIVE, widget=forms.RadioSelect, required=False)
 
-class BasicHealthInsuranceInfo(forms.Form):
+class BasicHealthInsuranceInfo():
     issuer_name = "ERROR"
     plan_name = "ERROR"
     premium_price = 99999
+    issuer_id = "ERROR"
+    plan_id = "ERROR"
 
-class DetailedHealthInsuranceInfo(forms.Form):
+class DetailedHealthInsuranceInfo():
     plan_name = "Acer Computer Insurance"
     premium = "Super Mega Expensive"
     copay = "80,000"

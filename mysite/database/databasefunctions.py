@@ -49,7 +49,7 @@ def hard_filters_pg1(db_loc, zip=None, age=None, tobacco_usage=None, disease=Non
     conn, c = create_connection(db_loc)
     hard_df = pd.DataFrame()
     if disease is not None and benefit is not None:
-        print("Disease/Benefit not null")
+        # print("Disease/Benefit not null")
         if tobacco_usage == "No":
             results = c.execute("select p.planid from plan_attributes p,"
                                 "(select * from cost where state = ? and age_lower <= ? and "
@@ -74,7 +74,7 @@ def hard_filters_pg1(db_loc, zip=None, age=None, tobacco_usage=None, disease=Non
                                 (state, age, age, "%" + disease + "%", benefit))
             hard_df = pd.DataFrame(results.fetchall())
     if disease is None and benefit is not None and hard_df.empty:
-        print("Disease null/Benefit not null")
+        # print("Disease null/Benefit not null")
         if tobacco_usage == "No":
             results = c.execute("select p.planid from plan_attributes p,"
                                 "(select * from cost where state = ? and age_lower <= ? and "
@@ -99,7 +99,7 @@ def hard_filters_pg1(db_loc, zip=None, age=None, tobacco_usage=None, disease=Non
                                 (state, age, age, benefit))
             hard_df = pd.DataFrame(results.fetchall())
     if benefit is None and disease is not None and hard_df.empty:
-        print("Disease not null/Benefit null")
+        # print("Disease not null/Benefit null")
         if tobacco_usage == "No":
             results = c.execute("select p.planid from plan_attributes p,"
                                 "(select * from cost where state = ? and age_lower <= ? and "
@@ -124,7 +124,7 @@ def hard_filters_pg1(db_loc, zip=None, age=None, tobacco_usage=None, disease=Non
                                 (state, age, age, "%" + disease + "%"))
             hard_df = pd.DataFrame(results.fetchall())
     if disease is None and benefit is None or hard_df.empty:
-        print("Disease/Benefit null")
+        # print("Disease/Benefit null")
         if tobacco_usage == "No":
             results = c.execute("select p.planid from plan_attributes p,"
                                 "(select * from cost where state = ? and age_lower <= ? and "
@@ -156,7 +156,8 @@ def hard_filters_pg1(db_loc, zip=None, age=None, tobacco_usage=None, disease=Non
 def soft_filters(df, db_loc, age, smoking='No', benefit='Emergency Room Services',
                  prem=0, coin_in=0, copay_in=0, ded_in=0, moop_in=0, visit=0.5, oo_cntry=0.5):
     conn, c = create_connection(db_loc)
-    planid = df['p.planid'].tolist()
+    # print("Age %s Smoking %s benefit %s" % (age,smoking,benefit))
+    planid = df['PlanId'].tolist()
     if smoking == 'No':
         rate_norm_col = "c.rate_norm"
         rate_col = "c.indiv_rate"
@@ -176,6 +177,9 @@ def soft_filters(df, db_loc, age, smoking='No', benefit='Emergency Room Services
             "' and c.age_lower<=" + str(age) + " and c.age_higher>=" + str(age)
     results = c.execute(query)
     soft_df = pd.DataFrame(results.fetchall())
+    if soft_df.empty:
+        print("No matches")
+    # print(soft_df)
     soft_df.columns = [description[0] for description in results.description]
     # df['distance'] = soft_df.apply(lambda x: euclidean(np.array([float(x['CountryCoverage']),
     #                                                         float(x['MOOP']),
@@ -192,8 +196,8 @@ def soft_filters(df, db_loc, age, smoking='No', benefit='Emergency Room Services
                                                   float(x['copayin_norm']), float(x['coinsin_norm']),
                                                   float(x['premium_norm'])]) -
                                                  np.array([moop_in, ded_in, copay_in, coin_in, prem]),
-                                                 ((float(x['CountryCoverage']) - oo_cntry)**2 +
-                                                 (float(x['visits_norm']) - visit) ** 2)**0.5),
+                                                 ((float(x['CountryCoverage']) - float(oo_cntry))**2 +
+                                                 (float(x['visits_norm']) - float(visit)) ** 2)**0.5),
                                    axis=1)
     df['Price'] = soft_df['premium']
     df['Plan_Name'] = soft_df['PlanMarketingName']
@@ -212,7 +216,8 @@ def soft_filters(df, db_loc, age, smoking='No', benefit='Emergency Room Services
     df['Coinsurance_OUT'] = soft_df['coinsurance_out']
     df['Number_Of_Visits'] = soft_df['visits']
     close_connection(conn, c)
-    return_df = df.sort(['distance', 'Price'], ascending=[True, True]).head()
+    # print(df)
+    return_df = df.sort_values(by = ['distance', 'Price'], ascending=[True, True]).head()
     return_df.reset_index(drop=True, inplace=True)
     return return_df
 
