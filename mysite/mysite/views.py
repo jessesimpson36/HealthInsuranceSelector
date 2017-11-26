@@ -48,6 +48,13 @@ def input(request):
             # process the data in form.cleaned_data as required
             frame = dbf.hard_filters_pg1("health_insurance.db", form.data['zipcode'], form.data['age'], form.data['do_you_smoke'],
                                          diseases, benefits, desired_premium_price)
+            if not isinstance(frame, pd.DataFrame):
+                if frame is False:
+                    print('Indicate on frontend no results were found for given inputs')
+                    return render(request, 'index.html', {'form': form})
+                elif frame == "Invalid entry":
+                    print("Indicate on frontend inputs are invalid")
+                    return render(request, 'index.html', {'form': form})
             if form.data['do_you_smoke'] == "Yes":
             # normalize inputs (premium, copay, coinsurance, deductible, moop, visits)
             # the values obtained were found using database maxes and mins
@@ -92,6 +99,10 @@ def input(request):
 
             soft_frame = dbf.soft_filters(frame, "health_insurance.db", form.data['age'], form.data['do_you_smoke'], benefits,
                                      premium, coinsurance, copay, deductible, moop, visits, form.data['out_of_country'])
+            if not isinstance(soft_frame, pd.DataFrame) and soft_frame is False:
+                print('Indicate on frontend no results were found for given inputs')
+                return render(request, 'index.html', {'form': form})
+
 
             # this is how we will get the list inputs
 

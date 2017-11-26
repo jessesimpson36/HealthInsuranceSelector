@@ -35,9 +35,9 @@ def close_connection(conn, c):
     c.close()
     conn.close()
 
-def hard_filters_pg1(db_loc, zip=None, age=None, tobacco_usage=None, disease=None, benefit=None, premium=None):
+def hard_filters_pg1(db_loc, zip=None, age=None, tobacco_usage=None, disease=None, benefit=None, premium=0):
     if zip is None or str(zip).strip() == "" or age is None or str(age).strip() == "" or tobacco_usage is None:
-        return "Enter all inputs"
+        return "Invalid entry"
 
     search = uszipcode.ZipcodeSearchEngine()
     state = None
@@ -45,7 +45,7 @@ def hard_filters_pg1(db_loc, zip=None, age=None, tobacco_usage=None, disease=Non
         if search.by_zipcode(str(zip)):
             state = search.by_zipcode(str(zip))['State']
         else:
-            return "Invalid zipcode"
+            return "Invalid entry"
     conn, c = create_connection(db_loc)
     hard_df = pd.DataFrame()
     if disease is not None and benefit is not None:
@@ -146,7 +146,7 @@ def hard_filters_pg1(db_loc, zip=None, age=None, tobacco_usage=None, disease=Non
                                 (state, age, age))
             hard_df = pd.DataFrame(results.fetchall())
     if hard_df.empty:
-        return "No results to show for your area"
+        return False
     hard_df.columns = [description[0] for description in results.description]
     close_connection(conn, c)
     return hard_df
@@ -156,6 +156,8 @@ def hard_filters_pg1(db_loc, zip=None, age=None, tobacco_usage=None, disease=Non
 def soft_filters(df, db_loc, age, smoking='No', benefit='Emergency Room Services',
                  prem=0, coin_in=0, copay_in=0, ded_in=0, moop_in=0, visit=0.5, oo_cntry=0.5):
     conn, c = create_connection(db_loc)
+    if benefit is None or benefit.strip() == "":
+        benefit = 'Emergency Room Services'
     # print("Age %s Smoking %s benefit %s" % (age,smoking,benefit))
     planid = df['PlanId'].tolist()
     if smoking == 'No':
@@ -179,6 +181,7 @@ def soft_filters(df, db_loc, age, smoking='No', benefit='Emergency Room Services
     soft_df = pd.DataFrame(results.fetchall())
     if soft_df.empty:
         print("No matches")
+        return False
     # print(soft_df)
     soft_df.columns = [description[0] for description in results.description]
     # df['distance'] = soft_df.apply(lambda x: euclidean(np.array([float(x['CountryCoverage']),
