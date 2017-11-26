@@ -10,17 +10,26 @@
         {% for resultsObj in resultsList %}
 
             <label> Plan Name:       </label>    {{ resultsObj.plan_name }} <br>
-            <label> Premium Price    </label>    {{ resultsObj.premium }}   <br>
-            <label> CoPay:           </label>    {{ resultsObj.copay }}     <br>
+            <label> Issuer Name:     </label>    {{ resultsObj.issuer_name }}   <br>
+            <label> Premium Price:   </label>    {{ resultsObj.premium_price }}     <br>
+            <label> Maximum Out of Pocket   </label>    {{ resultsObj.moop }}     <br>
+            <label> Diseases:   </label>    {{ resultsObj.diseases }}     <br>
+            <label> Benefits:   </label>    {{ resultsObj.benefits }}     <br>
+            <label> Out of country coverage:   </label>    {{ resultsObj.out_of_country }}     <br>
+            <label> Copay:           </label>    {{ resultsObj.copay }}       <br>
             <label> Coinsurance:     </label>    {{ resultsObj.coinsurance }} <br>
-            <label> Brochure Link:   </label>   <a href={{ resultsObj.brochure_link }}>Brochure Link</a><br>
+            <label> Brochure Link:   </label>   <a href={{ resultsObj.brochure_link }}>{{ resultsObj.brochure_link }}</a><br>
             <label> Enrollment Link: </label>   <a href={{ resultsObj.enrollment_link }}>{{ resultsObj.enrollment_link }}</a> <br>
             <label> BBB Ratings:     </label>    {{ resultsObj.bbb_rating }}<br>
             <label> Customer Ratings:</label>    {{ resultsObj.customer_rating }} / 5 Stars<br><br><br>
+
+            <!--<div id="piechart"></div>-->
+
+
         {% endfor %}
 
 
-        <div id="piechart"></div>
+
     </div>
 
 

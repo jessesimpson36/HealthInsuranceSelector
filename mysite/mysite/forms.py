@@ -89,7 +89,7 @@ class HealthInsuranceInputForm(forms.Form):
     # these are inputs that Satvik requested:
     desired_copay = forms.IntegerField(label='Desired Copay', help_text="0-4500", min_value=0, max_value=4500, required=False)
     number_of_visits = forms.IntegerField(label='How many doctor visits do you typically have per month?', required=False)
-    out_of_country = forms.ChoiceField(choices=YES_NO_ALTERNATIVE, widget=forms.RadioSelect, required=False)
+    out_of_country = forms.ChoiceField(choices=YES_NO_ALTERNATIVE, widget=forms.RadioSelect)
 
 class BasicHealthInsuranceInfo():
     issuer_name = "ERROR"
@@ -97,16 +97,21 @@ class BasicHealthInsuranceInfo():
     premium_price = 99999
     issuer_id = "ERROR"
     plan_id = "ERROR"
+    copay = "ERROR"
+    coinsurance = "ERROR"
+    brochure_link = "ERROR"
+    enrollment_link = "ERROR"
+    bbb_rating = "ERROR"
+    customer_rating = "ERROR"
+    out_of_country = "ERROR"
+    diseases = []
+    moop = "ERROR"
+    benefits = []
+    pos_count = 0
+    neg_count = 0
+    high_count = 0
+    low_count = 0
 
-class DetailedHealthInsuranceInfo():
-    plan_name = "Acer Computer Insurance"
-    premium = "Super Mega Expensive"
-    copay = "80,000"
-    coinsurance = "58%"
-    brochure_link = "http://www.wolfware.com"
-    enrollment_link = "http://www.youtube.com"
-    bbb_rating = "A+"
-    customer_rating = "4.5"
 
 if __name__ != "__main__":
     os.chdir(os.path.join(".."))

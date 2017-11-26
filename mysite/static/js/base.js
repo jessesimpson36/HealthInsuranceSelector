@@ -3,7 +3,7 @@
 // https://www.w3schools.com/howto/howto_js_form_steps.asp?
 var currentTab = 0; // Current tab is set to be the first tab (0)
 // Display the crurrent tab
-window.onload = function () { showTab(0); showTobaccoQuestion(); showListOfBenefits(); }
+window.onload = function () { showTab(0); }
 
 function showTab(n) {
   // This function will display the specified tab of the form...
@@ -80,30 +80,28 @@ function fixStepIndicator(n) {
   x[n].className += " active";
 }
 
-function showTobaccoQuestion(){
-    var x = document.getElementById("smokeBox").checked;
-    var tobaccoLabel = document.getElementById("tobaccoLabel");
-    var tobaccoInput = document.getElementById("tobaccoInput");
-    if (x){
-        tobaccoInput.style.display = "inline";
-        tobaccoLabel.style.display = "inline";
-    } else {
-        tobaccoInput.style.display = "none";
-        tobaccoLabel.style.display = "none";
-    }
-}
+
+// Load google charts
+//google.charts.load('current', {'packages':['corechart']});
+//google.charts.setOnLoadCallback(drawChart);
+//
+//// Draw the chart and set the chart values
+//function drawChart(pos_count, neg_count, high_count, low_count) {
+//  var data = google.visualization.arrayToDataTable([
+//  ['Type', 'Reviews'],
+//  ['Positive Count', pos_count],
+//  ['Negative Count', neg_count],
+//  ['High Count', high_count],
+//  ['Low Count', low_count]
+//]);
+//
+//// Optional; add a title and set the width and height of the chart
+//  var options = {'title':'Reviews', 'width':400, 'height':300};
+//
+//  // Display the chart inside the <div> element with id="piechart"
+//  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+//  chart.draw(data, options);
+//  drawChart({{ resultsObj.pos_count }}, {{ resultsObj.neg_count }}, {{ resultsObj.high_count }}, {{ resultsObj.low_count }});
 
 
-function showListOfBenefits(){
-    var x = document.getElementById("benefitsCheckBox").checked;
-    var listOfBenefits = document.getElementById("benefitsSelect");
-    var benefitsLabel = document.getElementById("benefitsLabel")
-    if ( x ){
-        listOfBenefits.style.display = "inline";
-        benefitsLabel.style.display = "inline"
-    } else {
 
-        listOfBenefits.style.display = "none";
-        benefitsLabel.style.display = "none";
-    }
-}
