@@ -73,8 +73,8 @@ class HealthInsuranceInputForm(forms.Form):
     age = forms.IntegerField(label='Age', min_value=1, max_value=150)
     do_you_smoke = forms.ChoiceField(choices=YES_NO, widget=forms.RadioSelect, label="Do you smoke?")
     # soft filters
-    benefits = forms.ChoiceField(choices=BENEFIT_CHOICES, widget=forms.RadioSelect, required=False)
-    diseases = forms.ChoiceField(choices=DISEASE_CHOICES, widget=forms.RadioSelect, required=False)
+    benefits = forms.MultipleChoiceField(choices=BENEFIT_CHOICES, widget=forms.RadioSelect, required=False)
+    diseases = forms.MultipleChoiceField(choices=DISEASE_CHOICES, widget=forms.RadioSelect, required=False)
     # importance_of_diseases = forms.IntegerField(max_value=10, min_value= 0, widget=forms.TextInput(attrs={'placeholder': '0-10'}), required=False)
     desired_premium_price = forms.IntegerField(label='Desired Premium Price', required=False)
     # importance_of_premium_prices = forms.IntegerField(max_value=10, min_value=0, widget=forms.TextInput(attrs={'placeholder': '0-10'}), required=False)

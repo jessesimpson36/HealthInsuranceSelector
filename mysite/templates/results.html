@@ -3,61 +3,163 @@
 {% block title %} Results {% endblock %}
 
 {% block body %}
-<form id="resultForm" action="/results/" method="post">
-    <h3 class="text-center">Results</h3>
+<div id="resultForm" action="/results/" method="post">
+    <div class="container" style="box-shadow: 2px 2px 10px 10px #888888;">
+        <h3 class="text-center">Here are some plans that might fit your requirements</h3><hr><br>
 
-    <div class="container">
+
         {% for resultsObj in resultsList %}
+            <div align="center">
+            <label> Plan Name: </label> {{resultsObj.plan_name}} <br>
+            <label> Issuer Name: </label> {{ resultsObj.issuer_name }} <br>
+            <label> Premium Price: </label> {{ resultsObj.premium_price }} <br>
 
-            <label> Plan Name:       </label>    {{ resultsObj.plan_name }} <br>
-            <label> Issuer Name:     </label>    {{ resultsObj.issuer_name }}   <br>
-            <label> Premium Price:   </label>    {{ resultsObj.premium_price }}     <br>
-            <label> Maximum Out of Pocket   </label>    {{ resultsObj.moop }}     <br>
-            <label> Diseases:   </label>    {{ resultsObj.diseases }}     <br>
-            <label> Benefits:   </label>    {{ resultsObj.benefits }}     <br>
-            <label> Out of country coverage:   </label>    {{ resultsObj.out_of_country }}     <br>
-            <label> Copay:           </label>    {{ resultsObj.copay }}       <br>
-            <label> Coinsurance:     </label>    {{ resultsObj.coinsurance }} <br>
-            <label> Brochure Link:   </label>   <a href={{ resultsObj.brochure_link }}>{{ resultsObj.brochure_link }}</a><br>
-            <label> Enrollment Link: </label>   <a href={{ resultsObj.enrollment_link }}>{{ resultsObj.enrollment_link }}</a> <br>
-            <label> BBB Ratings:     </label>    {{ resultsObj.bbb_rating }}<br>
-            <label> Customer Ratings:</label>    {{ resultsObj.customer_rating }} / 5 Stars<br><br><br>
 
-            <div id="piechart"></div>
-            <script>
+            <!--<div id="piechart"></div>-->
+            <a class="portfolio-link" href="#plan{{forloop.counter}}" data-toggle="modal">
+                <input type="submit" class="btn btn-primary" value="View Additional Information"
+                       onclick="fading1()" autofocus>
+                </input>
+            </a></div>
+            <br><hr><br>
+            <div class="portfolio-modal modal fade" id="plan{{forloop.counter}}" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="close-modal" data-dismiss="modal">
+                            <div class="lr">
+                                <div class="rl"></div>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-6 mx-auto">
+                                    <div class="modal-body">
+                                        <script>window.scrollTo(0, 0);</script>
+                                        <h4 class="text-center" style="color:green;">Additional Plan Information</h4>
+                                        <br>
+                                        <label> Plan Name: </label> {{ resultsObj.plan_name }} <br>
+                                        <label> Maximum Out of Pocket </label> {{ resultsObj.moop }} <br>
+                                        <label> Diseases: </label> {{ resultsObj.diseases }} <br>
+                                        <label> Benefits: </label> {{ resultsObj.benefits }} <br>
+                                        <label> Out of country coverage: </label> {{ resultsObj.out_of_country }} <br>
+                                        <label> Copay: </label> {{ resultsObj.copay }} <br>
+                                        <label> Coinsurance: </label> {{ resultsObj.coinsurance }} <br>
+                                        <label> Brochure Link: </label> <a href={{ resultsObj.brochure_link }}>{{ resultsObj.brochure_link }}</a><br>
+                                        <label> Enrollment Link: </label> <a href={{ resultsObj.enrollment_link }}>{{ resultsObj.enrollment_link }}</a> <br>
+                                        <label> BBB Ratings: </label> {{ resultsObj.bbb_rating }}<br>
+                                        <label> Customer Ratings:</label> {{ resultsObj.customer_rating }} / 5 Stars<br>
+                                        <br>
 
-                // Load google charts
-                google.charts.load('current', {'packages':['corechart']});
-                google.charts.setOnLoadCallback(drawChart);
+                                        <br>
+                                        <div id="chart1{{forloop.counter}}" class="modal-content"></div>
+                                        <br>
+                                        <div id="chart2{{forloop.counter}}" class="modal-content"></div>
 
-                // Draw the chart and set the chart values
-                function drawChart() {
-                  var data = google.visualization.arrayToDataTable([
-                  ['Type', 'Reviews'],
-                  ['Positive Count', {{ resultsObj.pos_count }}],
-                  ['Negative Count', {{ resultsObj.neg_count }}],
-                  ['Expensive Count', {{ resultsObj.high_count }}],
-                  ['Inexpensive Count', {{ resultsObj.low_count }}]
-                ]);
 
-                // Optional; add a title and set the width and height of the chart
-                var options = {'title':'Reviews', 'width':400, 'height':300};
+                                        <br>
+                                        <div align="center"><button class="btn btn-success" type="button" data-dismiss="modal">
+                                            Close
+                                        </button></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                // Display the chart inside the <div> element with id="piechart"
-                var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-                chart.draw(data, options);
-                drawChart();
+
+            <script type="text/javascript">
+                // Build the chart
+                Highcharts.chart('chart1{{forloop.counter}}', {
+                    chart: {
+                        plotBackgroundColor: null,
+                        plotBorderWidth: null,
+                        plotShadow: false,
+                        type: 'pie'
+                    },
+                    title: {
+                        text: "Customer Review Sentiment Analysis"
+                    },
+                    tooltip: {
+                        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                    },
+                    plotOptions: {
+                        pie: {
+                            allowPointSelect: true,
+                            cursor: 'pointer',
+                            dataLabels: {
+                                enabled: false
+                            },
+                            showInLegend: true
+                        }
+                    },
+                    series: [{
+                        name: 'Reviews',
+                        colorByPoint: true,
+                        data: [{
+                            name: 'Positive',
+                            y: {{resultsObj.pos_count}}
+                        }, {
+                            name: 'Negative',
+                            y: {{resultsObj.neg_count}},
+                            sliced: true,
+                            selected: true
+                        }]
+                    }]
+                });
+
+
             </script>
+            <script type="text/javascript">
+                // Build the chart
+                Highcharts.chart('chart2{{forloop.counter}}', {
+                    chart: {
+                        plotBackgroundColor: null,
+                        plotBorderWidth: null,
+                        plotShadow: false,
+                        type: 'pie'
+                    },
+                    title: {
+                        text: "Plan Affordability Index"
+                    },
+                    tooltip: {
+                        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                    },
+                    plotOptions: {
+                        pie: {
+                            allowPointSelect: true,
+                            cursor: 'pointer',
+                            dataLabels: {
+                                enabled: false
+                            },
+                            showInLegend: true
+                        }
+                    },
+                    series: [{
+                        name: 'Percent',
+                        colorByPoint: true,
+                        data: [{
+                            name: 'Affordable',
+                            y: {{resultsObj.low_count}}
+                        }, {
+                            name: 'Expensive',
+                            y: {{resultsObj.high_count}},
+                            sliced: true,
+                            selected: true
+                        }]
+                    }]
+                });
 
+            </script>
 
         {% endfor %}
 
 
     </div>
 
-
+</div>
 </form>
-
 
 
 {% endblock %}

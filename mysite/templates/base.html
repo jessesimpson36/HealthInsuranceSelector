@@ -7,18 +7,23 @@
     {% load staticfiles %}
     <link rel="stylesheet" href="{% static 'bootstrap/dist/css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.css' %}">
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-
+     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <![endif]-->
     <!-- This is how you include css/js -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}"/>
     <script src="{% static 'js/base.js' %}"></script>
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+<script src="https://code.highcharts.com/modules/drilldown.js"></script>
+
 </head>
 
 <body>
@@ -37,15 +42,14 @@
                 </button>
                 <a href="{% url 'index' %}" style="overflow: visible;" class='navbar-brand'>Health Insurance Selector</a>
             </div>
-    
-            <!-- Fully Logged in with instance picked menu --> 
+
+            <!-- Fully Logged in with instance picked menu -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="{% url 'home:homepage' %}"> Home</a></li>
+                    <li><a><i>- We help you make the right choice!</i></a></li>
                 </ul>
-    
+
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a>Example</a></li>
                     <!-- Drop Down -->
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Options <span class="caret"></span></a>
