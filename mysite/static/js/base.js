@@ -81,27 +81,5 @@ function fixStepIndicator(n) {
 }
 
 
-// Load google charts
-//google.charts.load('current', {'packages':['corechart']});
-//google.charts.setOnLoadCallback(drawChart);
-//
-//// Draw the chart and set the chart values
-//function drawChart(pos_count, neg_count, high_count, low_count) {
-//  var data = google.visualization.arrayToDataTable([
-//  ['Type', 'Reviews'],
-//  ['Positive Count', pos_count],
-//  ['Negative Count', neg_count],
-//  ['High Count', high_count],
-//  ['Low Count', low_count]
-//]);
-//
-//// Optional; add a title and set the width and height of the chart
-//  var options = {'title':'Reviews', 'width':400, 'height':300};
-//
-//  // Display the chart inside the <div> element with id="piechart"
-//  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-//  chart.draw(data, options);
-//  drawChart({{ resultsObj.pos_count }}, {{ resultsObj.neg_count }}, {{ resultsObj.high_count }}, {{ resultsObj.low_count }});
-
 
 

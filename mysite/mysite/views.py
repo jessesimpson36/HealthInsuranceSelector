@@ -95,8 +95,9 @@ def input(request):
             else:
                 visits = 0
 
-            if form.cleaned_data['out_of_country'] == '':
-                out_of_country = .5
+            out_of_country = .5
+            if form.cleaned_data['out_of_country'] != '':
+                out_of_country = form.cleaned_data['out_of_country']
 
             soft_frame = dbf.soft_filters(frame, "health_insurance.db", form.data['age'], form.data['do_you_smoke'], benefits,
                                      premium, coinsurance, copay, deductible, moop, visits, out_of_country)
