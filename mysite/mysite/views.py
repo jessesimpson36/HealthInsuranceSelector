@@ -95,10 +95,11 @@ def input(request):
             else:
                 visits = 0
 
-
+            if form.cleaned_data['out_of_country'] == '':
+                out_of_country = .5
 
             soft_frame = dbf.soft_filters(frame, "health_insurance.db", form.data['age'], form.data['do_you_smoke'], benefits,
-                                     premium, coinsurance, copay, deductible, moop, visits, form.data['out_of_country'])
+                                     premium, coinsurance, copay, deductible, moop, visits, out_of_country)
             if not isinstance(soft_frame, pd.DataFrame) and soft_frame is False:
                 print('Indicate on frontend no results were found for given inputs')
                 return render(request, 'index.html', {'form': form})

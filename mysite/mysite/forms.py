@@ -89,7 +89,7 @@ class HealthInsuranceInputForm(forms.Form):
     # these are inputs that Satvik requested:
     desired_copay = forms.IntegerField(label='Desired Copay', help_text="0-4500", min_value=0, max_value=4500, required=False)
     number_of_visits = forms.IntegerField(label='How many doctor visits do you typically have per month?', required=False)
-    out_of_country = forms.ChoiceField(choices=YES_NO_ALTERNATIVE, widget=forms.RadioSelect)
+    out_of_country = forms.ChoiceField(choices=YES_NO_ALTERNATIVE, widget=forms.RadioSelect, required=False)
 
 class BasicHealthInsuranceInfo():
     issuer_name = "ERROR"
