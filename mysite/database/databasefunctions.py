@@ -31,49 +31,222 @@ def create_connection(db_loc):
     c = conn.cursor()
     return conn, c
 
-
 def close_connection(conn, c):
     c.close()
     conn.close()
 
+def hard_filters_pg1(db_loc, zip=None, age=None, tobacco_usage=None, disease=None, benefit=None, premium=0):
+    if zip is None or str(zip).strip() == "" or age is None or str(age).strip() == "" or tobacco_usage is None:
+        return "Invalid entry"
 
-def hard_filters_pg1(db_loc, zip = None, age = None, tobacco_usage = None):
-    if zip == None or str(zip).strip() == "" or age == None or str(age).strip() == "" or tobacco_usage == None:
-        return "Enter all inputs"
     search = uszipcode.ZipcodeSearchEngine()
     state = None
     if str(zip).strip() != "":
         if search.by_zipcode(str(zip)):
             state = search.by_zipcode(str(zip))['State']
         else:
-            return "Invalid zipcode"
+            return "Invalid entry"
     conn, c = create_connection(db_loc)
-    if tobacco_usage == "Yes":
-        results = c.execute("SELECT distinct plan_id, smoker_rate FROM cost where state = ? AND age_lower <= ? AND "
-                            "age_higher >= ? ", (state, age, age))
-    else:
-        results = c.execute("SELECT distinct plan_id, indiv_rate FROM cost where state = ? AND age_lower <= ? AND "
-                            "age_higher >= ? ", (state, age, age))
-
-    if not results:
-        print("No plans are available in your area covering your condition. Checking for closest match..")
-        results = c.execute("SELECT * FROM PLAN_ATTRIBUTES where STATECODE = ?" , (state,))
-
-    hard_df = pd.DataFrame(results.fetchall())
-    print(results.description)
+    hard_df = pd.DataFrame()
+    if disease is not None and benefit is not None:
+        # print("Disease/Benefit not null")
+        if tobacco_usage == "No":
+            results = c.execute("select p.planid from plan_attributes p,"
+                                "(select * from cost where state = ? and age_lower <= ? and "
+                                "age_higher >= ? and indiv_rate <= 1.2 * ?) c, benefits b "
+                                "on substr(p.planid, 1, 14) = c.plan_id and p.planid = b.plan_id "
+                                "where p.diseasemanagementprogramsoffered like ? and b.benefit_name = ?",
+                                (state, age, age, premium, "%"+disease+"%", benefit))
+        else:
+            results = c.execute("select p.planid from plan_attributes p,"
+                                "(select * from cost where state = ? and age_lower <= ? and "
+                                "age_higher >= ? and smoker_rate <= 1.2 * ?) c, benefits b "
+                                "on substr(p.planid, 1, 14) = c.plan_id and p.planid = b.plan_id "
+                                "where p.diseasemanagementprogramsoffered like ? and b.benefit_name = ?",
+                                (state, age, age, premium, "%"+disease+"%", benefit))
+        hard_df = pd.DataFrame(results.fetchall())
+        if hard_df.empty:
+            results = c.execute("select p.planid from plan_attributes p,"
+                                "(select * from cost where state = ? and age_lower <= ? and "
+                                "age_higher >= ?) c, benefits b "
+                                "on substr(p.planid, 1, 14) = c.plan_id and p.planid = b.plan_id "
+                                "where p.diseasemanagementprogramsoffered like ? and b.benefit_name = ?",
+                                (state, age, age, "%" + disease + "%", benefit))
+            hard_df = pd.DataFrame(results.fetchall())
+    if disease is None and benefit is not None and hard_df.empty:
+        # print("Disease null/Benefit not null")
+        if tobacco_usage == "No":
+            results = c.execute("select p.planid from plan_attributes p,"
+                                "(select * from cost where state = ? and age_lower <= ? and "
+                                "age_higher >= ? and indiv_rate <= 1.2 * ?) c, benefits b "
+                                "on substr(p.planid, 1, 14) = c.plan_id and p.planid = b.plan_id "
+                                "where b.benefit_name = ?",
+                                (state, age, age, premium, benefit))
+        else:
+            results = c.execute("select p.planid from plan_attributes p,"
+                                "(select * from cost where state = ? and age_lower <= ? and "
+                                "age_higher >= ? and smoker_rate <= 1.2 * ?) c, benefits b "
+                                "on substr(p.planid, 1, 14) = c.plan_id and p.planid = b.plan_id "
+                                "where b.benefit_name = ?",
+                                (state, age, age, premium, benefit))
+        hard_df = pd.DataFrame(results.fetchall())
+        if hard_df.empty:
+            results = c.execute("select p.planid from plan_attributes p,"
+                                "(select * from cost where state = ? and age_lower <= ? and "
+                                "age_higher >= ?) c, benefits b "
+                                "on substr(p.planid, 1, 14) = c.plan_id and p.planid = b.plan_id "
+                                "where b.benefit_name = ?",
+                                (state, age, age, benefit))
+            hard_df = pd.DataFrame(results.fetchall())
+    if benefit is None and disease is not None and hard_df.empty:
+        # print("Disease not null/Benefit null")
+        if tobacco_usage == "No":
+            results = c.execute("select p.planid from plan_attributes p,"
+                                "(select * from cost where state = ? and age_lower <= ? and "
+                                "age_higher >= ? and indiv_rate <= 1.2 * ?) c "
+                                "on substr(p.planid, 1, 14) = c.plan_id "
+                                "where p.diseasemanagementprogramsoffered like ?",
+                                (state, age, age, premium, "%" + disease + "%"))
+        else:
+            results = c.execute("select p.planid from plan_attributes p,"
+                                "(select * from cost where state = ? and age_lower <= ? and "
+                                "age_higher >= ? and smoker_rate <= 1.2 * ?) c "
+                                "on substr(p.planid, 1, 14) = c.plan_id "
+                                "where p.diseasemanagementprogramsoffered like ?",
+                                (state, age, age, premium, "%" + disease + "%"))
+        hard_df = pd.DataFrame(results.fetchall())
+        if hard_df.empty:
+            results = c.execute("select p.planid from plan_attributes p,"
+                                "(select * from cost where state = ? and age_lower <= ? and "
+                                "age_higher >= ?) c "
+                                "on substr(p.planid, 1, 14) = c.plan_id "
+                                "where p.diseasemanagementprogramsoffered like ?",
+                                (state, age, age, "%" + disease + "%"))
+            hard_df = pd.DataFrame(results.fetchall())
+    if disease is None and benefit is None or hard_df.empty:
+        # print("Disease/Benefit null")
+        if tobacco_usage == "No":
+            results = c.execute("select p.planid from plan_attributes p,"
+                                "(select * from cost where state = ? and age_lower <= ? and "
+                                "age_higher >= ? and indiv_rate <= 1.2 * ?) c "
+                                "on substr(p.planid, 1, 14) = c.plan_id",
+                                (state, age, age, premium))
+        else:
+            results = c.execute("select p.planid from plan_attributes p,"
+                                "(select * from cost where state = ? and age_lower <= ? and "
+                                "age_higher >= ? and smoker_rate <= 1.2 * ?) c "
+                                "on substr(p.planid, 1, 14) = c.plan_id",
+                                (state, age, age, premium))
+        hard_df = pd.DataFrame(results.fetchall())
+        if hard_df.empty:
+            results = c.execute("select p.planid from plan_attributes p,"
+                                "(select * from cost where state = ? and age_lower <= ? and "
+                                "age_higher >= ?) c "
+                                "on substr(p.planid, 1, 14) = c.plan_id",
+                                (state, age, age))
+            hard_df = pd.DataFrame(results.fetchall())
+    if hard_df.empty:
+        return False
     hard_df.columns = [description[0] for description in results.description]
     close_connection(conn, c)
     return hard_df
 
-def get_plan_names(db_loc, hard_df1):
+
+
+def soft_filters(df, db_loc, age, smoking='No', benefit='Emergency Room Services',
+                 prem=0, coin_in=0, copay_in=0, ded_in=0, moop_in=0, visit=0.5, oo_cntry=0.5):
     conn, c = create_connection(db_loc)
-    res = list(set(hard_df1['plan_id'].apply(lambda x: x[0:5])))
-    query = "SELECT * FROM IssuerID_Name_Mapping where IssuerID IN (" + ','.join(res) + ")"
+    if benefit is None or benefit.strip() == "":
+        benefit = 'Emergency Room Services'
+    # print("Age %s Smoking %s benefit %s" % (age,smoking,benefit))
+    planid = df['PlanId'].tolist()
+    if smoking == 'No':
+        rate_norm_col = "c.rate_norm"
+        rate_col = "c.indiv_rate"
+    else:
+        rate_norm_col = "c.smoker_norm"
+        rate_col = "c.smoker_rate"
+    query = "select distinct p.planId, p.PlanMarketingName, p.IssuerId, p.CountryCoverage, p.planType, p.MOOP, " \
+            "p.diseasemanagementprogramsoffered, p.TEHBInnTier1IndividualMOOP, p.TEHBOutOfNetIndividualMOOP, " \
+            "p.TEHBDedInnTier1Individual, p.TEHBDedOutOfNetIndividual, p.DedInn, i.Issuer_Name, b.copay_in, " \
+            "b.copay_out, b.coinsurance_in, b.coinsurance_out, b.copayin_norm, b.coinsin_norm, " \
+            + rate_norm_col + " as premium_norm, " + rate_col + " as premium, v.visits, v.visits_norm " \
+            "from Plan_Attributes p, benefits b, visits v, cost c, IssuerID_Name_Mapping i " \
+            "on p.PlanId = b.plan_id and p.IssuerId = v.issuer_id " \
+            "and substr(p.planid, 1, 14) = c.plan_id and p.IssuerId = i.IssuerId " \
+            "where p.planId in ('" + '\',\''.join(planid) + "') " \
+            "and b.benefit_name = '" + str(benefit) + \
+            "' and c.age_lower<=" + str(age) + " and c.age_higher>=" + str(age)
     results = c.execute(query)
-    names = pd.DataFrame(results.fetchall())
-    names.columns = [col[0] for col in results.description]
+    soft_df = pd.DataFrame(results.fetchall())
+    if soft_df.empty:
+        print("No matches")
+        return False
+    # print(soft_df)
+    soft_df.columns = [description[0] for description in results.description]
+    # df['distance'] = soft_df.apply(lambda x: euclidean(np.array([float(x['CountryCoverage']),
+    #                                                         float(x['MOOP']),
+    #                                                         float(x['DedInn']),
+    #                                                         float(x['copayin_norm']),
+    #                                                         float(x['coinsin_norm']),
+    #                                                         float(x['premium']),
+    #                                                         float(x['visits_norm'])]),
+    #                                               np.array([oo_cntry, moop_in, ded_in, copay_in,
+    #                                                         coin_in, prem, visit])),
+    #                           axis=1)
+
+    df['distance'] = soft_df.apply(lambda x: sum(np.array([float(x['MOOP']), float(x['DedInn']),
+                                                  float(x['copayin_norm']), float(x['coinsin_norm']),
+                                                  float(x['premium_norm'])]) -
+                                                 np.array([moop_in, ded_in, copay_in, coin_in, prem]),
+                                                 ((float(x['CountryCoverage']) - float(oo_cntry))**2 +
+                                                 (float(x['visits_norm']) - float(visit)) ** 2)**0.5),
+                                   axis=1)
+    df['Price'] = soft_df['premium']
+    df['Plan_Name'] = soft_df['PlanMarketingName']
+    df['Issuer_Name'] = soft_df['Issuer_Name']
+    df['Issuer_ID'] = soft_df['IssuerId']
+    df['Out_Of_Country_Coverage'] = soft_df['CountryCoverage']
+    df['Plan_Type'] = soft_df['PlanType']
+    df['Disease_Management_Programs'] = soft_df['DiseaseManagementProgramsOffered']
+    df['MOOP_IN'] = soft_df['TEHBInnTier1IndividualMOOP']
+    df['MOOP_OUT'] = soft_df['TEHBOutOfNetIndividualMOOP']
+    df['Deductible_IN'] = soft_df['TEHBDedInnTier1Individual']
+    df['Deductible_OUT'] = soft_df['TEHBDedOutOfNetIndividual']
+    df['Copay_IN'] = soft_df['copay_in']
+    df['Copay_OUT'] = soft_df['copay_out']
+    df['Coinsurance_IN'] = soft_df['coinsurance_in']
+    df['Coinsurance_OUT'] = soft_df['coinsurance_out']
+    df['Number_Of_Visits'] = soft_df['visits']
     close_connection(conn, c)
-    return names
+    # print(df)
+    return_df = df.sort_values(by = ['distance', 'Price'], ascending=[True, True]).head()
+    return_df.reset_index(drop=True, inplace=True)
+    return return_df
+
+def get_plan_information(db_loc, issuerid, planid):
+    conn, c = create_connection(db_loc)
+
+    results = c.execute("Select * from BBBRatings where issuerid = ?", (issuerid,))
+    ratings = pd.DataFrame(results.fetchall())
+    ratings.columns = [description[0] for description in results.description]
+
+    results = c.execute("Select Pos_Count, Neg_Count, High_Count, Low_Count from Reviews r where issuerid = ?",
+                        (issuerid,))
+    reviews = pd.DataFrame(results.fetchall())
+    reviews.columns = [description[0] for description in results.description]
+
+    results = c.execute("Select benefit_name from benefits where plan_id = ? ", (planid,))
+    benefits = pd.DataFrame(results.fetchall())
+    benefits = benefits[0].tolist()
+
+    results = c.execute("Select URLForEnrollmentPayment, PlanBrochure from Plan_Attributes where PlanId = ?",
+                        (planid,))
+    links = pd.DataFrame(results.fetchall())
+    links.columns = [description[0] for description in results.description]
+
+    return ratings, reviews, benefits, links
+
 
 if __name__ == "__main__":
     hard_filters_pg1()

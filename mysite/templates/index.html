@@ -24,9 +24,10 @@
             </div>
 
             <div class="form-group">
-                {{ form.months_tobacco_free.label_tag }}
-                {{ form.months_tobacco_free }}
+                {{ form.do_you_smoke.label_tag }}
+                {{ form.do_you_smoke }}
             </div>
+
         </div>
 
          <!--  ---------------------------------------------------------------------  -->
@@ -52,25 +53,41 @@
                     {{ form.desired_in_network_out_of_pocket_maximum }}
                 </div>
 
-                <div class="form-group">
-                    {{ form.desired_out_of_network_out_of_pocket_maximum.label_tag }}
-                    {{ form.desired_out_of_network_out_of_pocket_maximum }}
-                </div>
+                <!--<div class="form-group">-->
+                    <!--{{ form.desired_out_of_network_out_of_pocket_maximum.label_tag }}-->
+                    <!--{{ form.desired_out_of_network_out_of_pocket_maximum }}-->
+                <!--</div>-->
 
                 <div class="form-group">
                     {{ form.desired_in_network_deductible.label_tag }}
                     {{ form.desired_in_network_deductible }}
                 </div>
 
-                <div class="form-group">
-                    {{ form.desired_out_of_network_deductible.label_tag }}
-                    {{ form.desired_out_of_network_deductible }}
-                </div>
+                <!--<div class="form-group">-->
+                    <!--{{ form.desired_out_of_network_deductible.label_tag }}-->
+                    <!--{{ form.desired_out_of_network_deductible }}-->
+                <!--</div>-->
 
                 <div class="form-group">
                     {{ form.desired_in_network_coinsurance.label_tag }}
                     {{ form.desired_in_network_coinsurance }}
                 </div>
+
+                <div class="form-group">
+                    {{ form.desired_copay.label_tag }}
+                    {{ form.desired_copay }}
+                </div>
+
+                <div class="form-group">
+                    {{ form.number_of_visits.label_tag }}
+                    {{ form.number_of_visits }}
+                </div>
+
+                <div class="form-group">
+                    {{ form.out_of_country.label_tag }}
+                    {{ form.out_of_country }}
+                </div>
+
             </div>
         <div>
             <div style="float:right;">

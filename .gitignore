@@ -5,3 +5,5 @@ mysite/home/__pycache__/
 mysite/home/migrations/
 mysite/utils/__pycache__/
 mysite/database/health_insurance.db
+mysite/database/__pycache__/
+
