@@ -12,5 +12,5 @@ user preferences.
 5. Open an internet browser and go to localhost:8000
 
 # Important notes about the program
-* There is no message displayed to the user for invalid input, it just returns the user to the input page.
+* There is no message displayed to the user for invalid input, it just returns the user to the input page if the form is invalid.
 * If there is no match for health insurance plans given your zipcode, age, smoking status, diseases, and benefits, the program will return you to the input page. Any combination of the remaining inputs should still return results.
