@@ -1,10 +1,10 @@
 # Setup 
 1. Copy the repo
-2. Open `<repo>/mysite` in PyCharm (I promise Django development will be MUCH easier and its free to students)
+2. Open `<repo>/mysite` in PyCharm
 3. Open a terminal and type `npm install` to install the dependencies in package.json
 4. You should be able to run `python manage.py runserver` and the application should be served.
 
-# Django Commands
+# Django Commands Instructions ( for developer use )
 ### Base Command
 * `python manage.py ____`
 
